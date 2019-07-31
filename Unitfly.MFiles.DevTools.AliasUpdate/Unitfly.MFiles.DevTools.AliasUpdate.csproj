@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Unitfly.MFiles.DevTools.Common\Unitfly.MFiles.DevTools.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Interop.MFilesAPI">
+      <HintPath>..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Interop.MFilesAPI\7.0.0.0__f1b4733f444f7ad0\Interop.MFilesAPI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
