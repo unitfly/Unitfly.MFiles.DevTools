@@ -10,7 +10,7 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.App
         public AliasUpdater(LoginType loginType, string vaultName, string username, string password,
             string domain = null, string protocolSequence = "ncacn_ip_tcp", string networkAddress = "localhost",
             string endpoint = "2266", bool encryptedConnection = false, string localComputerName = "")
-            : base(Log.Logger, 
+            : base(Log.Logger,
                   loginType: loginType,
                   vaultName: vaultName,
                   username: username,
@@ -27,47 +27,47 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.App
         public void SetAliases(AliasTemplates names, CaseConverter converter, UpdateBehaviour behaviour)
         {
             var aliasUpdateBehaviour = behaviour.GetUpdateBehaviour();
-            if (!string.IsNullOrWhiteSpace(names?.ObjectType))
+            if (names?.ObjectType != null)
             {
                 UpdateObjTypeAliases(names.ObjectType, converter, aliasUpdateBehaviour);
             }
 
-            if (!string.IsNullOrWhiteSpace(names?.ValueList))
+            if (names?.ValueList!= null)
             {
                 UpdateValueListAliases(names.ValueList, converter, aliasUpdateBehaviour);
             }
 
-            if (!string.IsNullOrWhiteSpace(names?.PropertyDef))
+            if (names?.PropertyDef!= null)
             {
                 UpdatePropertyDefAliases(names.PropertyDef, converter, aliasUpdateBehaviour);
             }
 
-            if (!string.IsNullOrWhiteSpace(names?.Class))
+            if (names?.Class!= null)
             {
                 UpdateClassAliases(names.Class, converter, aliasUpdateBehaviour);
             }
 
-            if (!string.IsNullOrWhiteSpace(names?.Workflow))
+            if (names?.Workflow!= null)
             {
                 UpdateWorkflowAliases(names.Workflow, converter, aliasUpdateBehaviour);
             }
 
-            if (!string.IsNullOrWhiteSpace(names?.State))
+            if (names?.State!= null)
             {
                 UpdateStateAliases(names.State, converter, aliasUpdateBehaviour);
             }
 
-            if (!string.IsNullOrWhiteSpace(names?.StateTransition))
+            if (names?.StateTransition!= null)
             {
                 UpdateStateTransitionAliases(names.StateTransition, converter, aliasUpdateBehaviour);
             }
 
-            if (!string.IsNullOrWhiteSpace(names?.UserGroup))
+            if (names?.UserGroup!= null)
             {
                 UpdateUserGroupAliases(names.UserGroup, converter, aliasUpdateBehaviour);
             }
 
-            if (!string.IsNullOrWhiteSpace(names?.NamedACL))
+            if (names?.NamedACL!= null)
             {
                 UpdateNamedACLAliases(names.NamedACL, converter, aliasUpdateBehaviour);
             }
