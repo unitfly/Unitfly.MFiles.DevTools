@@ -1,6 +1,6 @@
 ﻿namespace Unitfly.MFiles.DevTools.Common.UpdateBehaviours
 {
-    public class SetEmptyBehaviour : IUpdateBehaviour
+    public class SetIfEmptyBehaviour : IUpdateBehaviour
     {
         public string UpdateAlias(string previousValue, string newValue)
         {

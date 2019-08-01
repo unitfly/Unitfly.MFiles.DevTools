@@ -16,7 +16,7 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.App
                     return new OverwriteBehaviour();
                 case UpdateBehaviour.SetIfEmpty:
                 default:
-                    return new SetEmptyBehaviour();
+                    return new SetIfEmptyBehaviour();
             }
         }
 

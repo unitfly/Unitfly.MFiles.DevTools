@@ -1,4 +1,6 @@
-﻿namespace Unitfly.MFiles.DevTools.Common.UpdateBehaviours
+﻿using System.Linq;
+
+namespace Unitfly.MFiles.DevTools.Common.UpdateBehaviours
 {
     public class AppendBehaviour : IUpdateBehaviour
     {
@@ -7,6 +9,12 @@
             if (string.IsNullOrWhiteSpace(previousValue))
             {
                 return newValue;
+            }
+
+            var existingAliases = previousValue.Split(';');
+            if (existingAliases != null && existingAliases.Contains(newValue))
+            {
+                return previousValue;
             }
 
             return $"{previousValue};{newValue}";
