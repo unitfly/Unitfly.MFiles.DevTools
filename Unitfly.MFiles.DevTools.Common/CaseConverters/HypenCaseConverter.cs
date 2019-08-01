@@ -8,7 +8,7 @@
 
         protected override string Transform(string input)
         {
-            return input?.ToLower().Replace("  ", " ").Replace(' ', '-');
+            return input?.ToLower()?.Replace(' ', '-');
         }
     }
 }
