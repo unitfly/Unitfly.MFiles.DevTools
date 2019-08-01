@@ -11,7 +11,7 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.ItemNameParsers
 
         public override string Expand(NamedACLAdmin namedACL, IVault vault)
         {
-            return Template?.Replace("{ObjectType}", NameConverter.ToString(namedACL.NamedACL.Name));
+            return Template?.Replace("{NamedACL}", NameConverter.ToString(namedACL.NamedACL.Name));
         }
     }
 }

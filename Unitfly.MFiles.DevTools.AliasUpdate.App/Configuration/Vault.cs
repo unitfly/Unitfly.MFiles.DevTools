@@ -18,5 +18,20 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration
 
         [JsonProperty("Password", Required = Required.Always)]
         public string Password { get; set; }
+
+        [JsonProperty("ProtocolSequence")]
+        public string ProtocolSequence { get; set; }
+
+        [JsonProperty("NetworkAddress")]
+        public string NetworkAddress { get; set; }
+
+        [JsonProperty("Endpoint")]
+        public string Endpoint { get; set; }
+
+        [JsonProperty("EncryptedConnection")]
+        public bool EncryptedConnection { get; set; }
+
+        [JsonProperty("LocalComputerName")]
+        public string LocalComputerName { get; set; }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using MFilesAPI;
+using Serilog;
+using Serilog.Core;
 using System;
 using System.Linq;
 using Unitfly.MFiles.DevTools.AliasUpdate.ItemNameParsers;
@@ -10,7 +12,7 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
 {
     public class AliasesOperations : VaultAdmin
     {
-        private static int[] _ignorePropDefs = new int[]
+        private static readonly int[] _ignorePropDefs = new int[]
         {
             (int)MFBuiltInPropertyDef.MFBuiltInPropertyDefCreated,
             (int)MFBuiltInPropertyDef.MFBuiltInPropertyDefLastModified,
@@ -25,12 +27,25 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
             (int)MFBuiltInPropertyDef.MFBuiltInPropertyDefClassGroups
         };
 
-        public AliasesOperations(string vaultName, string loginType, string username, string password, string domain = null)
-            : base(vaultName, loginType, username, password, domain)
+        public AliasesOperations(ILogger logger, LoginType loginType, string vaultName, string username, string password,
+            string domain = null, string protocolSequence = "ncacn_ip_tcp", string networkAddress = "localhost",
+            string endpoint = "2266", bool encryptedConnection = false, string localComputerName = "")
+            : base(loginType: loginType,
+                vaultName: vaultName,
+                username: username,
+                password: password,
+                domain: domain,
+                protocolSequence: protocolSequence,
+                networkAddress: networkAddress,
+                endpoint: endpoint,
+                encryptedConnection: encryptedConnection,
+                localComputerName: localComputerName)
         {
+            Log.Logger = logger;
+            Log.Information("Logged in to vault {vault} as {loginType} user {user}.", 
+                vaultName, loginType, string.IsNullOrWhiteSpace(domain) ? $"{domain}\\{username}" : username);
         }
 
-        
         public void UpdateUserGroupAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour)
         {
             var parser = new UserGroupNameParser(nameTemplate, converter);
@@ -215,14 +230,22 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
                 var expanded = parser.Expand(item, Vault);
                 var newAlias = behaviour.UpdateAlias(aliases.Value, expanded);
 
-                if (aliases.Value == newAlias) return;
+                if (string.IsNullOrWhiteSpace(newAlias) && string.IsNullOrWhiteSpace(aliases.Value))
+                {
+                    return;
+                }
 
-                aliases.Value = newAlias;
-                updateAction(item);
+                if (aliases.Value != newAlias)
+                {
+                    aliases.Value = newAlias;
+                    updateAction(item);
+                }
+
+                Log.Information("Updated alias {alias}.", aliases?.Value);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                // TODO log
+                Log.Error(e, "Error updating aliases {alias}.", aliases?.Value);
             }
         }
     }

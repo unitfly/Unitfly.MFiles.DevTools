@@ -1,11 +1,26 @@
-﻿using Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration;
+﻿using Serilog;
+using Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration;
+using Unitfly.MFiles.DevTools.Common;
 using Unitfly.MFiles.DevTools.Common.CaseConverters;
 
 namespace Unitfly.MFiles.DevTools.AliasUpdate.App
 {
-    public class AliasesOperationsApp : AliasesOperations
+    public class AliasUpdater : AliasesOperations
     {
-        public AliasesOperationsApp(string vaultName, string loginType, string username, string password, string domain = null) : base(vaultName, loginType, username, password, domain)
+        public AliasUpdater(LoginType loginType, string vaultName, string username, string password,
+            string domain = null, string protocolSequence = "ncacn_ip_tcp", string networkAddress = "localhost",
+            string endpoint = "2266", bool encryptedConnection = false, string localComputerName = "")
+            : base(Log.Logger, 
+                  loginType: loginType,
+                  vaultName: vaultName,
+                  username: username,
+                  password: password,
+                  domain: domain,
+                  protocolSequence: protocolSequence,
+                  networkAddress: networkAddress,
+                  endpoint: endpoint,
+                  encryptedConnection: encryptedConnection,
+                  localComputerName: localComputerName)
         {
         }
 
