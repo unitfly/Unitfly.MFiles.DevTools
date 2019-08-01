@@ -1,7 +1,7 @@
 ﻿using Unitfly.MFiles.DevTools.Common.UpdateBehaviours;
 using Xunit;
 
-namespace Unitfly.MFiles.DevTools.Common.Tests
+namespace Unitfly.MFiles.DevTools.Common.Tests.UpdateBehaviours
 {
     public class AppendBehaviourTests
     {
@@ -13,9 +13,21 @@ namespace Unitfly.MFiles.DevTools.Common.Tests
         }
 
         [Fact]
+        public void TestNull()
+        {
+            Assert.Equal("", _behaviour.UpdateAlias(null, ""));
+        }
+
+        [Fact]
         public void TestEmpty()
         {
             Assert.Equal("", _behaviour.UpdateAlias("", ""));
+        }
+
+        [Fact]
+        public void TestAddFirst()
+        {
+            Assert.Equal("first", _behaviour.UpdateAlias("", "first"));
         }
 
         [Fact]
@@ -27,7 +39,7 @@ namespace Unitfly.MFiles.DevTools.Common.Tests
         [Fact]
         public void TestDontAppendExisting()
         {
-            Assert.Equal("first;second", _behaviour.UpdateAlias("first;second", "second"));
+            Assert.Equal("second;first", _behaviour.UpdateAlias("second;first", "second"));
         }
 
         [Fact]

@@ -1,7 +1,7 @@
 ﻿using Unitfly.MFiles.DevTools.Common.UpdateBehaviours;
 using Xunit;
 
-namespace Unitfly.MFiles.DevTools.Common.Tests
+namespace Unitfly.MFiles.DevTools.Common.Tests.UpdateBehaviours
 {
     public class OverwriteBehaviourTests
     {
