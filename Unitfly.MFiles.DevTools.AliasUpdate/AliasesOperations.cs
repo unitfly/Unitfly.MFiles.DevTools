@@ -42,11 +42,11 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
                 localComputerName: localComputerName)
         {
             Log.Logger = logger;
-            Log.Information("Logged in to vault {vault} as {loginType} user {user}.", 
-                vaultName, loginType, string.IsNullOrWhiteSpace(domain) ? $"{domain}\\{username}" : username);
+            Log.Information("Logged in to vault {vault} as {loginType} user {user}.",
+                vaultName, loginType, string.IsNullOrWhiteSpace(domain) ? username : $"{domain}\\{username}");
         }
 
-        public void UpdateUserGroupAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour)
+        public void UpdateUserGroupAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour, bool dryRun)
         {
             var parser = new UserGroupNameParser(nameTemplate, converter);
             var groups = Vault.UserGroupOperations.GetUserGroupsAdmin()?.Cast<UserGroupAdmin>();
@@ -58,11 +58,12 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
                     (g) => Vault.UserGroupOperations.UpdateUserGroupAdmin(g),
                     parser,
                     behaviour,
-                    group.SemanticAliases);
+                    group.SemanticAliases,
+                    dryRun);
             }
         }
 
-        public void UpdateNamedACLAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour)
+        public void UpdateNamedACLAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour, bool dryRun)
         {
             var parser = new NamedACLNameParser(nameTemplate, converter);
             var namedAcls = Vault.NamedACLOperations.GetNamedACLs()?.Cast<NamedACL>();
@@ -75,11 +76,12 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
                     (n) => Vault.NamedACLOperations.UpdateNamedACLAdmin(n),
                     parser,
                     behaviour,
-                    namedAclAdmin.SemanticAliases);
+                    namedAclAdmin.SemanticAliases,
+                    dryRun);
             }
         }
 
-        public void UpdateStateTransitionAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour)
+        public void UpdateStateTransitionAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour, bool dryRun)
         {
             var parser = new StateTransitionNameParser(nameTemplate, converter);
             var workflows = Vault.WorkflowOperations.GetWorkflowsAdmin()?.Cast<WorkflowAdmin>();
@@ -96,14 +98,15 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
                         (s) => { },
                         parser,
                         behaviour,
-                        transition.SemanticAliases);
+                        transition.SemanticAliases,
+                        dryRun);
                 }
 
-                Vault.WorkflowOperations.UpdateWorkflowAdmin(workflow);
+                if (!dryRun) Vault.WorkflowOperations.UpdateWorkflowAdmin(workflow);
             }
         }
 
-        public void UpdateStateAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour)
+        public void UpdateStateAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour, bool dryRun)
         {
             var parser = new StateNameParser(nameTemplate, converter);
             var workflows = Vault.WorkflowOperations.GetWorkflowsAdmin()?.Cast<WorkflowAdmin>();
@@ -120,14 +123,15 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
                         (s) => { },
                         parser,
                         behaviour,
-                        state.SemanticAliases);
+                        state.SemanticAliases,
+                        dryRun);
                 }
 
-                Vault.WorkflowOperations.UpdateWorkflowAdmin(workflow);
+                if (!dryRun) Vault.WorkflowOperations.UpdateWorkflowAdmin(workflow);
             }
         }
 
-        public void UpdateWorkflowAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour)
+        public void UpdateWorkflowAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour, bool dryRun)
         {
             var parser = new WorkflowNameParser(nameTemplate, converter);
             var workflows = Vault.WorkflowOperations.GetWorkflowsAdmin()?.Cast<WorkflowAdmin>();
@@ -139,11 +143,12 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
                     (w) => Vault.WorkflowOperations.UpdateWorkflowAdmin(w),
                     parser,
                     behaviour,
-                    workflow.SemanticAliases);
+                    workflow.SemanticAliases,
+                    dryRun);
             }
         }
 
-        public void UpdatePropertyDefAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour)
+        public void UpdatePropertyDefAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour, bool dryRun)
         {
             var parser = new PropertyDefNameParser(nameTemplate, converter);
             var propDefs = Vault.PropertyDefOperations.GetPropertyDefsAdmin()?.Cast<PropertyDefAdmin>();
@@ -155,11 +160,12 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
                     (p) => Vault.PropertyDefOperations.UpdatePropertyDefAdmin(p),
                     parser,
                     behaviour,
-                    propDef.SemanticAliases);
+                    propDef.SemanticAliases,
+                    dryRun);
             }
         }
 
-        public void UpdateValueListAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour)
+        public void UpdateValueListAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour, bool dryRun)
         {
             var parser = new ValueListNameParser(nameTemplate, converter);
             var valueLists = Vault.ValueListOperations.GetValueListsAdmin()?.Cast<ObjTypeAdmin>();
@@ -171,11 +177,12 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
                     (vl) => Vault.ValueListOperations.UpdateValueListAdmin(vl),
                     parser,
                     behaviour,
-                    valueList.SemanticAliases);
+                    valueList.SemanticAliases,
+                    dryRun);
             }
         }
 
-        public void UpdateClassAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour)
+        public void UpdateClassAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour, bool dryRun)
         {
             var parser = new ClassNameParser(nameTemplate, converter);
             var classesAdmin = Vault.ClassOperations.GetAllObjectClassesAdmin()?.Cast<ObjectClassAdmin>();
@@ -187,11 +194,12 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
                     (ca) => UpdateClassAdmin(ca),
                     parser,
                     behaviour,
-                    classAdmin.SemanticAliases);
+                    classAdmin.SemanticAliases,
+                    dryRun);
             }
         }
 
-        public void UpdateObjTypeAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour)
+        public void UpdateObjTypeAliases(string nameTemplate, CaseConverter converter, IUpdateBehaviour behaviour, bool dryRun)
         {
             var parser = new ObjectTypeNameParser(nameTemplate, converter);
             var objTypes = Vault.ObjectTypeOperations.GetObjectTypesAdmin()?.Cast<ObjTypeAdmin>();
@@ -203,7 +211,8 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
                     (ot) => Vault.ObjectTypeOperations.UpdateObjectTypeAdmin(ot),
                     parser,
                     behaviour,
-                    objType.SemanticAliases);
+                    objType.SemanticAliases,
+                    dryRun);
             }
         }
 
@@ -223,7 +232,7 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
             Vault.ClassOperations.UpdateObjectClassAdmin(classAdmin);
         }
 
-        private void UpdateAlias<T>(T item, Action<T> updateAction, ItemNameParser<T> parser, IUpdateBehaviour behaviour, ISemanticAliases aliases)
+        private void UpdateAlias<T>(T item, Action<T> updateAction, ItemNameParser<T> parser, IUpdateBehaviour behaviour, ISemanticAliases aliases, bool dryRun)
         {
             try
             {
@@ -238,7 +247,7 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
                 if (aliases.Value != newAlias)
                 {
                     aliases.Value = newAlias;
-                    updateAction(item);
+                    if (!dryRun) updateAction(item);
                 }
 
                 Log.Information("Updated alias {alias}.", aliases?.Value);

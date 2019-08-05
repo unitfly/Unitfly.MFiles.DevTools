@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommandLine, Version=2.6.0.0, Culture=neutral, PublicKeyToken=5a870481e358d379, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommandLineParser.2.6.0\lib\net461\CommandLine.dll</HintPath>
+    </Reference>
     <Reference Include="Interop.MFilesAPI, Version=7.0.0.0, Culture=neutral, PublicKeyToken=f1b4733f444f7ad0, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -106,10 +109,15 @@
     <Compile Include="Configuration\NameTransform.cs" />
     <Compile Include="Configuration\UpdateBehaviour.cs" />
     <Compile Include="Configuration\Vault.cs" />
+    <Compile Include="Commands\Exit.cs" />
     <Compile Include="Helpers.cs" />
+    <Compile Include="Commands\Login.cs" />
+    <Compile Include="Commands\Print.cs" />
+    <Compile Include="Commands\Reload.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AliasUpdater.cs" />
+    <Compile Include="Commands\Run.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

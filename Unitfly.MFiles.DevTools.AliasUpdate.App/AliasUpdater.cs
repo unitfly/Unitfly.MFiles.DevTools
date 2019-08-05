@@ -24,52 +24,52 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.App
         {
         }
 
-        public void SetAliases(AliasTemplates names, CaseConverter converter, UpdateBehaviour behaviour)
+        public void SetAliases(AliasTemplates names, CaseConverter converter, UpdateBehaviour behaviour, bool dryRun)
         {
             var aliasUpdateBehaviour = behaviour.GetUpdateBehaviour();
             if (names?.ObjectType != null)
             {
-                UpdateObjTypeAliases(names.ObjectType, converter, aliasUpdateBehaviour);
+                UpdateObjTypeAliases(names.ObjectType, converter, aliasUpdateBehaviour, dryRun);
             }
 
             if (names?.ValueList!= null)
             {
-                UpdateValueListAliases(names.ValueList, converter, aliasUpdateBehaviour);
+                UpdateValueListAliases(names.ValueList, converter, aliasUpdateBehaviour, dryRun);
             }
 
             if (names?.PropertyDef!= null)
             {
-                UpdatePropertyDefAliases(names.PropertyDef, converter, aliasUpdateBehaviour);
+                UpdatePropertyDefAliases(names.PropertyDef, converter, aliasUpdateBehaviour, dryRun);
             }
 
             if (names?.Class!= null)
             {
-                UpdateClassAliases(names.Class, converter, aliasUpdateBehaviour);
+                UpdateClassAliases(names.Class, converter, aliasUpdateBehaviour, dryRun);
             }
 
             if (names?.Workflow!= null)
             {
-                UpdateWorkflowAliases(names.Workflow, converter, aliasUpdateBehaviour);
+                UpdateWorkflowAliases(names.Workflow, converter, aliasUpdateBehaviour, dryRun);
             }
 
             if (names?.State!= null)
             {
-                UpdateStateAliases(names.State, converter, aliasUpdateBehaviour);
+                UpdateStateAliases(names.State, converter, aliasUpdateBehaviour, dryRun);
             }
 
             if (names?.StateTransition!= null)
             {
-                UpdateStateTransitionAliases(names.StateTransition, converter, aliasUpdateBehaviour);
+                UpdateStateTransitionAliases(names.StateTransition, converter, aliasUpdateBehaviour, dryRun);
             }
 
             if (names?.UserGroup!= null)
             {
-                UpdateUserGroupAliases(names.UserGroup, converter, aliasUpdateBehaviour);
+                UpdateUserGroupAliases(names.UserGroup, converter, aliasUpdateBehaviour, dryRun);
             }
 
             if (names?.NamedACL!= null)
             {
-                UpdateNamedACLAliases(names.NamedACL, converter, aliasUpdateBehaviour);
+                UpdateNamedACLAliases(names.NamedACL, converter, aliasUpdateBehaviour, dryRun);
             }
         }
     }
