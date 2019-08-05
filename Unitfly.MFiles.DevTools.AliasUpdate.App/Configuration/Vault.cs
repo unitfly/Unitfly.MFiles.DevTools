@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Unitfly.MFiles.DevTools.Common;
 
 namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration
 {
@@ -10,7 +11,8 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration
         public string VaultName { get; set; }
 
         [JsonProperty("LoginType", Required = Required.Always)]
-        public string LoginType { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public LoginType LoginType { get; set; } = LoginType.MFiles;
 
         [JsonProperty("Domain")]
         public string Domain { get; set; }
