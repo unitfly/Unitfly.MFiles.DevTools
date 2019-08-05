@@ -1,7 +1,16 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration
 {
+    public enum ProtocolSequence
+    {
+        TcpIp,
+        LocalProcedureCall,
+        Spx,
+        Https
+    }
+
     public class Vault
     {
         [JsonProperty("VaultName", Required = Required.Always)]
@@ -19,14 +28,15 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration
         [JsonProperty("Password", Required = Required.Always)]
         public string Password { get; set; }
 
-        [JsonProperty("ProtocolSequence")]
-        public string ProtocolSequence { get; set; }
+        [JsonProperty("Protocol")]
+        [JsonConverter(typeof(StringEnumConverter))]
+        public ProtocolSequence Protocol { get; set; } = ProtocolSequence.TcpIp;
 
         [JsonProperty("NetworkAddress")]
-        public string NetworkAddress { get; set; }
+        public string NetworkAddress { get; set; } = "localhost";
 
-        [JsonProperty("Endpoint")]
-        public string Endpoint { get; set; }
+        [JsonProperty("Port")]
+        public int Port { get; set; } = 2266;
 
         [JsonProperty("EncryptedConnection")]
         public bool EncryptedConnection { get; set; }

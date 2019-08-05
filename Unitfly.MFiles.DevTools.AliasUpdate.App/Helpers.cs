@@ -6,6 +6,37 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.App
 {
     public static class Helpers
     {
+        public static string ProtocolSequenceToString(this ProtocolSequence sequence)
+        {
+            switch (sequence)
+            {
+                case ProtocolSequence.LocalProcedureCall:
+                    return "ncalrpc";
+                case ProtocolSequence.Spx:
+                    return "ncacn_spx";
+                case ProtocolSequence.Https:
+                    return "ncacn_http";
+                case ProtocolSequence.TcpIp:
+                default:
+                    return "ncacn_ip_tcp";
+            }
+        }
+        public static ProtocolSequence ProtocolSequenceFromString(this string sequence)
+        {
+            switch (sequence)
+            {
+                case "ncalrpc":
+                    return ProtocolSequence.LocalProcedureCall;
+                case "ncacn_spx":
+                    return ProtocolSequence.Spx;
+                case "ncacn_http":
+                    return ProtocolSequence.Https;
+                case "ncacn_ip_tcp":
+                default:
+                    return ProtocolSequence.TcpIp;
+            }
+        }
+
         public static IUpdateBehaviour GetUpdateBehaviour(this UpdateBehaviour behaviour)
         {
             switch (behaviour)

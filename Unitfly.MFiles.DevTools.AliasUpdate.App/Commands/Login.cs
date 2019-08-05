@@ -19,9 +19,9 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Commands
                     username: appSettings.Vault.Username,
                     password: appSettings.Vault.Password,
                     domain: appSettings.Vault.Domain,
-                    protocolSequence: appSettings.Vault.ProtocolSequence,
+                    protocolSequence: appSettings.Vault.Protocol.ProtocolSequenceToString(),
                     networkAddress: appSettings.Vault.NetworkAddress,
-                    endpoint: appSettings.Vault.Endpoint,
+                    endpoint: appSettings.Vault.Port.ToString(),
                     encryptedConnection: appSettings.Vault.EncryptedConnection,
                     localComputerName: appSettings.Vault.LocalComputerName);
             }

@@ -33,7 +33,6 @@ Class library that exposes methods for mass update of M-Files aliases. This libr
 
 Class library that contains common classes used in tools.
 
-
 ## DevTools.Common.Tests
 
 Unit tests of functionality exposed in DevTools.Common project.
