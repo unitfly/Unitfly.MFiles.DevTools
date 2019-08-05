@@ -13,8 +13,7 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Commands
         {
             try
             {
-                Enum.TryParse(appSettings.Vault.LoginType, out LoginType loginType);
-                Updater = new AliasUpdater(loginType: loginType,
+                Updater = new AliasUpdater(loginType: appSettings.Vault.LoginType,
                     vaultName: appSettings.Vault.VaultName,
                     username: appSettings.Vault.Username,
                     password: appSettings.Vault.Password,
