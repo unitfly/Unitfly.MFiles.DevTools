@@ -173,6 +173,11 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
 
             foreach (var valueList in valueLists)
             {
+                if (valueList.ObjectType.RealObjectType)
+                {
+                    continue;
+                }
+
                 UpdateAlias(valueList,
                     (vl) => Vault.ValueListOperations.UpdateValueListAdmin(vl),
                     parser,
@@ -207,6 +212,11 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
 
             foreach (var objType in objTypes)
             {
+                if (!objType.ObjectType.RealObjectType)
+                {
+                    continue;
+                }
+
                 UpdateAlias(objType,
                     (ot) => Vault.ObjectTypeOperations.UpdateObjectTypeAdmin(ot),
                     parser,
