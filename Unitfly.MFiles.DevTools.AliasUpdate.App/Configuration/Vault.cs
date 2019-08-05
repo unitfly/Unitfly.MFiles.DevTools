@@ -3,13 +3,6 @@ using Newtonsoft.Json.Converters;
 
 namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration
 {
-    public enum ProtocolSequence
-    {
-        TcpIp,
-        LocalProcedureCall,
-        Spx,
-        Https
-    }
 
     public class Vault
     {

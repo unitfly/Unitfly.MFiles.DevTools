@@ -107,6 +107,7 @@
     <Compile Include="Configuration\CasingType.cs" />
     <Compile Include="Configuration\ItemNameTemplates.cs" />
     <Compile Include="Configuration\NameTransform.cs" />
+    <Compile Include="Configuration\ProtocolSequence.cs" />
     <Compile Include="Configuration\UpdateBehaviour.cs" />
     <Compile Include="Configuration\Vault.cs" />
     <Compile Include="Commands\Exit.cs" />

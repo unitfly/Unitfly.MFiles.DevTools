@@ -10,7 +10,7 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Commands
     [Verb("reload-config", HelpText = "Reload settings from configuration file.")]
     public class Reload
     {
-        public static int Execute(ref AppSettings appSettings, Reload opts = null)
+        public static int Execute(ref AppSettings appSettings, ref AliasUpdater updater, Reload opts = null)
         {
             try
             {
@@ -22,6 +22,7 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Commands
                 appSettings = new AppSettings();
                 configuration.Bind(appSettings);
                 Log.Information("Loaded config from {file}.", "appsettings.json");
+
                 return 0;
             }
             catch (Exception e)

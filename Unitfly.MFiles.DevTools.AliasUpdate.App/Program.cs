@@ -25,7 +25,7 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.App
 
             Log.Debug("Starting application.");
 
-            Reload.Execute(ref AppSettings);
+            Reload.Execute(ref AppSettings, ref Updater);
 
             while (true)
             {
@@ -37,7 +37,7 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.App
                     .MapResult(
                       (Login opts) => Login.Execute(ref AppSettings, ref Updater, opts),
                       (Run opts) => Run.Execute(ref AppSettings, ref Updater, opts),
-                      (Reload opts) => Reload.Execute(ref AppSettings, opts),
+                      (Reload opts) => Reload.Execute(ref AppSettings, ref Updater, opts),
                       (Print opts) => Print.Execute(ref AppSettings, opts),
                       (Exit opts) => Exit.Execute(opts),
                       errs => 1);
