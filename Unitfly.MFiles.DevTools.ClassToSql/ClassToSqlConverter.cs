@@ -18,6 +18,16 @@ namespace Unitfly.MFiles.DevTools.ClassToSql
         {
         }
 
+        public Table ConvertClassToTable(string @class, CaseConverter converter, bool ignoreBuiltinProperties)
+        {
+            var classObj = Vault.ClassOperations.GetAllObjectClasses().Cast<ObjectClass>().FirstOrDefault(c => c.Name.ToLower() == @class.ToLower());
+            if (classObj is null)
+            {
+                throw new Exception($"Unable to fetch class {@class} from vault.");
+            }
+            return ConvertClassToTable(classObj, converter, ignoreBuiltinProperties);
+        }
+
         public Table ConvertClassToTable(ObjectClass @class, CaseConverter converter, bool ignoreBuiltinProperties)
         {
             var propertyDefs = Vault.PropertyDefOperations.GetPropertyDefs().Cast<PropertyDef>();

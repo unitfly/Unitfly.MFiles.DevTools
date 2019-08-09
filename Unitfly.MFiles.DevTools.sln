@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unitfly.MFiles.DevTools.Com
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unitfly.MFiles.DevTools.ClassToSql", "Unitfly.MFiles.DevTools.ClassToSql\Unitfly.MFiles.DevTools.ClassToSql.csproj", "{DBEE8F58-3804-417E-A58C-EA4A79D57014}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unitfly.MFiles.DevTools.ClassToSql.App", "Unitfly.MFiles.DevTools.ClassToSql.App\Unitfly.MFiles.DevTools.ClassToSql.App.csproj", "{115C14DA-4BE3-4FE2-BC57-A59F8FBF2418}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{DBEE8F58-3804-417E-A58C-EA4A79D57014}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBEE8F58-3804-417E-A58C-EA4A79D57014}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBEE8F58-3804-417E-A58C-EA4A79D57014}.Release|Any CPU.Build.0 = Release|Any CPU
+		{115C14DA-4BE3-4FE2-BC57-A59F8FBF2418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{115C14DA-4BE3-4FE2-BC57-A59F8FBF2418}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{115C14DA-4BE3-4FE2-BC57-A59F8FBF2418}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{115C14DA-4BE3-4FE2-BC57-A59F8FBF2418}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

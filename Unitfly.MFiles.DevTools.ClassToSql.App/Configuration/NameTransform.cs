@@ -2,7 +2,7 @@
 using Newtonsoft.Json.Converters;
 using Unitfly.MFiles.DevTools.Common.CaseConverters;
 
-namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration
+namespace Unitfly.MFiles.DevTools.ClassToSql.App.Configuration
 {
     public class NameTansform
     {
