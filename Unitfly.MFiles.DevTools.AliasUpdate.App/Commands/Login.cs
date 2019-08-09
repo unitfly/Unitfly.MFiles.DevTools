@@ -2,18 +2,17 @@
 using Serilog;
 using System;
 using Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration;
-using Unitfly.MFiles.DevTools.Common;
 
 namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Commands
 {
     [Verb("login", HelpText = "Login to an M-Files vault.")]
     public class Login
     {
-        public static int Execute(ref AppSettings appSettings, ref AliasUpdater Updater, Login opts = null)
+        public static int Execute(ref AppSettings appSettings, ref AliasUpdaterApp Updater, Login opts = null)
         {
             try
             {
-                Updater = new AliasUpdater(loginType: appSettings.Vault.LoginType,
+                Updater = new AliasUpdaterApp(loginType: appSettings.Vault.LoginType,
                     vaultName: appSettings.Vault.VaultName,
                     username: appSettings.Vault.Username,
                     password: appSettings.Vault.Password,

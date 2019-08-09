@@ -1,18 +1,14 @@
 ﻿using CommandLine;
-using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 using Serilog;
 using System;
-using System.IO;
 using Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration;
 using Unitfly.MFiles.DevTools.AliasUpdate.App.Commands;
-using Unitfly.MFiles.DevTools.Common;
 
 namespace Unitfly.MFiles.DevTools.AliasUpdate.App
 {
     class Program
     {
-        public static AliasUpdater Updater;
+        public static AliasUpdaterApp Updater;
         public static AppSettings AppSettings;
 
         static void Main(string[] args)

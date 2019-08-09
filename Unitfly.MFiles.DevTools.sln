@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unitfly.MFiles.DevTools.Ali
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unitfly.MFiles.DevTools.AliasUpdate.App", "Unitfly.MFiles.DevTools.AliasUpdate.App\Unitfly.MFiles.DevTools.AliasUpdate.App.csproj", "{5088BDA4-B2D1-4E15-A150-C8549D267314}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unitfly.MFiles.DevTools.Common.Tests", "Unitfly.MFiles.DevTools.Common.Tests\Unitfly.MFiles.DevTools.Common.Tests.csproj", "{C5369430-923C-49B0-AF27-7D9167A3130B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unitfly.MFiles.DevTools.Common.Tests", "Unitfly.MFiles.DevTools.Common.Tests\Unitfly.MFiles.DevTools.Common.Tests.csproj", "{C5369430-923C-49B0-AF27-7D9167A3130B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unitfly.MFiles.DevTools.ClassToSql", "Unitfly.MFiles.DevTools.ClassToSql\Unitfly.MFiles.DevTools.ClassToSql.csproj", "{DBEE8F58-3804-417E-A58C-EA4A79D57014}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{C5369430-923C-49B0-AF27-7D9167A3130B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5369430-923C-49B0-AF27-7D9167A3130B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5369430-923C-49B0-AF27-7D9167A3130B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBEE8F58-3804-417E-A58C-EA4A79D57014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBEE8F58-3804-417E-A58C-EA4A79D57014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBEE8F58-3804-417E-A58C-EA4A79D57014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBEE8F58-3804-417E-A58C-EA4A79D57014}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

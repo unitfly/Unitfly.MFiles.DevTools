@@ -1,6 +1,5 @@
 ﻿using MFilesAPI;
 using Serilog;
-using Serilog.Core;
 using System;
 using System.Linq;
 using Unitfly.MFiles.DevTools.AliasUpdate.ItemNameParsers;
@@ -10,7 +9,7 @@ using Unitfly.MFiles.DevTools.Common.UpdateBehaviours;
 
 namespace Unitfly.MFiles.DevTools.AliasUpdate
 {
-    public class AliasesOperations : VaultAdmin
+    public class AliasUpdater : ServerAdminApplication
     {
         private static readonly int[] _ignorePropDefs = new int[]
         {
@@ -27,7 +26,7 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
             (int)MFBuiltInPropertyDef.MFBuiltInPropertyDefClassGroups
         };
 
-        public AliasesOperations(ILogger logger, LoginType loginType, string vaultName, string username, string password,
+        public AliasUpdater(ILogger logger, LoginType loginType, string vaultName, string username, string password,
             string domain = null, string protocolSequence = "ncacn_ip_tcp", string networkAddress = "localhost",
             string endpoint = "2266", bool encryptedConnection = false, string localComputerName = "")
             : base(loginType: loginType,

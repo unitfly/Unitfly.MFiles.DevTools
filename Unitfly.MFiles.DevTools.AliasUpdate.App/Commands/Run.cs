@@ -11,7 +11,7 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Commands
         [Option('d', "dry-run", Required = false, HelpText = "Only show which aliases will be updated.")]
         public bool DryRun { get; set; }
 
-        public static int Execute(ref AppSettings appSettings, ref AliasUpdater updater, Run opts)
+        public static int Execute(ref AppSettings appSettings, ref AliasUpdaterApp updater, Run opts)
         {
             try
             {

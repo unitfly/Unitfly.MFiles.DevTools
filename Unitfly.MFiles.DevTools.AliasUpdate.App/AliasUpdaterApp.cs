@@ -5,9 +5,9 @@ using Unitfly.MFiles.DevTools.Common.CaseConverters;
 
 namespace Unitfly.MFiles.DevTools.AliasUpdate.App
 {
-    public class AliasUpdater : AliasesOperations
+    public class AliasUpdaterApp : AliasUpdater
     {
-        public AliasUpdater(LoginType loginType, string vaultName, string username, string password,
+        public AliasUpdaterApp(LoginType loginType, string vaultName, string username, string password,
             string domain = null, string protocolSequence = "ncacn_ip_tcp", string networkAddress = "localhost",
             string endpoint = "2266", bool encryptedConnection = false, string localComputerName = "")
             : base(Log.Logger,
