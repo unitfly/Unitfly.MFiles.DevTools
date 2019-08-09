@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Unitfly.MFiles.DevTools.ClassToSql.App")]
+[assembly: AssemblyTitle("Unitfly.MFiles.DevTools.SqlGenerator.App")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Unitfly.MFiles.DevTools.ClassToSql.App")]
+[assembly: AssemblyProduct("Unitfly.MFiles.DevTools.SqlGenerator.App")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

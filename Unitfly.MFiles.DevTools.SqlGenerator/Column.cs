@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 
-namespace Unitfly.MFiles.DevTools.ClassToSql
+namespace Unitfly.MFiles.DevTools.SqlGenerator
 {
     public class Column
     {

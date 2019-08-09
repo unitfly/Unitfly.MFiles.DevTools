@@ -11,9 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unitfly.MFiles.DevTools.Ali
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unitfly.MFiles.DevTools.Common.Tests", "Unitfly.MFiles.DevTools.Common.Tests\Unitfly.MFiles.DevTools.Common.Tests.csproj", "{C5369430-923C-49B0-AF27-7D9167A3130B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unitfly.MFiles.DevTools.ClassToSql", "Unitfly.MFiles.DevTools.ClassToSql\Unitfly.MFiles.DevTools.ClassToSql.csproj", "{DBEE8F58-3804-417E-A58C-EA4A79D57014}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unitfly.MFiles.DevTools.SqlGenerator", "Unitfly.MFiles.DevTools.SqlGenerator\Unitfly.MFiles.DevTools.SqlGenerator.csproj", "{F5CB7792-7DF3-490F-AC93-EE49D49E2450}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unitfly.MFiles.DevTools.ClassToSql.App", "Unitfly.MFiles.DevTools.ClassToSql.App\Unitfly.MFiles.DevTools.ClassToSql.App.csproj", "{115C14DA-4BE3-4FE2-BC57-A59F8FBF2418}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unitfly.MFiles.DevTools.SqlGenerator.App", "Unitfly.MFiles.DevTools.SqlGenerator.App\Unitfly.MFiles.DevTools.SqlGenerator.App.csproj", "{115C14DA-4BE3-4FE2-BC57-A59F8FBF2418}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +37,10 @@ Global
 		{C5369430-923C-49B0-AF27-7D9167A3130B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5369430-923C-49B0-AF27-7D9167A3130B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5369430-923C-49B0-AF27-7D9167A3130B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DBEE8F58-3804-417E-A58C-EA4A79D57014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DBEE8F58-3804-417E-A58C-EA4A79D57014}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DBEE8F58-3804-417E-A58C-EA4A79D57014}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DBEE8F58-3804-417E-A58C-EA4A79D57014}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5CB7792-7DF3-490F-AC93-EE49D49E2450}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5CB7792-7DF3-490F-AC93-EE49D49E2450}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5CB7792-7DF3-490F-AC93-EE49D49E2450}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5CB7792-7DF3-490F-AC93-EE49D49E2450}.Release|Any CPU.Build.0 = Release|Any CPU
 		{115C14DA-4BE3-4FE2-BC57-A59F8FBF2418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{115C14DA-4BE3-4FE2-BC57-A59F8FBF2418}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{115C14DA-4BE3-4FE2-BC57-A59F8FBF2418}.Release|Any CPU.ActiveCfg = Release|Any CPU

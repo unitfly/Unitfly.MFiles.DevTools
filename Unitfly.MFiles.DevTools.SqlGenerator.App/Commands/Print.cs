@@ -2,9 +2,9 @@
 using Newtonsoft.Json;
 using Serilog;
 using System;
-using Unitfly.MFiles.DevTools.ClassToSql.App.Configuration;
+using Unitfly.MFiles.DevTools.SqlGenerator.App.Configuration;
 
-namespace Unitfly.MFiles.DevTools.ClassToSql.App.Commands
+namespace Unitfly.MFiles.DevTools.SqlGenerator.App.Commands
 {
     [Verb("print-config", HelpText = "Print configuration file.")]
     public class Print

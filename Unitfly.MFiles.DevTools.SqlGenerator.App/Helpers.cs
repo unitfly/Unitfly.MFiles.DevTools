@@ -1,7 +1,7 @@
-﻿using Unitfly.MFiles.DevTools.ClassToSql.App.Configuration;
+﻿using Unitfly.MFiles.DevTools.SqlGenerator.App.Configuration;
 using Unitfly.MFiles.DevTools.Common.CaseConverters;
 
-namespace Unitfly.MFiles.DevTools.ClassToSql.App
+namespace Unitfly.MFiles.DevTools.SqlGenerator.App
 {
     public static class Helpers
     {

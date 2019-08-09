@@ -2,14 +2,14 @@
 using Serilog;
 using System;
 using System.Collections.Generic;
-using Unitfly.MFiles.DevTools.ClassToSql.App.Commands;
-using Unitfly.MFiles.DevTools.ClassToSql.App.Configuration;
+using Unitfly.MFiles.DevTools.SqlGenerator.App.Commands;
+using Unitfly.MFiles.DevTools.SqlGenerator.App.Configuration;
 
-namespace Unitfly.MFiles.DevTools.ClassToSql.App
+namespace Unitfly.MFiles.DevTools.SqlGenerator.App
 {
     class Program
     {
-        public static ClassToSqlConverter Converter;
+        public static ClassSqlGenerator Generator;
         public static AppSettings AppSettings;
 
         static void Main(string[] args)
@@ -22,7 +22,7 @@ namespace Unitfly.MFiles.DevTools.ClassToSql.App
 
             Log.Debug("Starting application.");
 
-            Reload.Execute(ref AppSettings, ref Converter);
+            Reload.Execute(ref AppSettings, ref Generator);
 
             while (true)
             {
@@ -35,12 +35,12 @@ namespace Unitfly.MFiles.DevTools.ClassToSql.App
                 Parser.Default
                     .ParseArguments<Exit, Login, CreateQuery, UpdateQuery, InsertQuery, DeleteQuery, Reload, Print>(arg)
                     .MapResult(
-                      (Login opts) => Login.Execute(ref AppSettings, ref Converter, opts),
-                      (CreateQuery opts) => new CreateQuery().Execute(ref AppSettings, ref Converter, opts),
-                      (UpdateQuery opts) => new UpdateQuery().Execute(ref AppSettings, ref Converter, opts),
-                      (InsertQuery opts) => new InsertQuery().Execute(ref AppSettings, ref Converter, opts),
-                      (DeleteQuery opts) => new DeleteQuery().Execute(ref AppSettings, ref Converter, opts),
-                      (Reload opts) => Reload.Execute(ref AppSettings, ref Converter, opts),
+                      (Login opts) => Login.Execute(ref AppSettings, ref Generator, opts),
+                      (CreateQuery opts) => new CreateQuery().Execute(ref AppSettings, ref Generator, opts),
+                      (UpdateQuery opts) => new UpdateQuery().Execute(ref AppSettings, ref Generator, opts),
+                      (InsertQuery opts) => new InsertQuery().Execute(ref AppSettings, ref Generator, opts),
+                      (DeleteQuery opts) => new DeleteQuery().Execute(ref AppSettings, ref Generator, opts),
+                      (Reload opts) => Reload.Execute(ref AppSettings, ref Generator, opts),
                       (Print opts) => Print.Execute(ref AppSettings, opts),
                       (Exit opts) => Exit.Execute(opts),
                       errs => 1);

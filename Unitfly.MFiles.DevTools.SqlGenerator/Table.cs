@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Unitfly.MFiles.DevTools.ClassToSql
+namespace Unitfly.MFiles.DevTools.SqlGenerator
 {
     public class Table
     {

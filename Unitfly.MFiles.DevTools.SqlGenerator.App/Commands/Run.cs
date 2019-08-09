@@ -1,16 +1,16 @@
 ﻿using CommandLine;
 using Serilog;
 using System;
-using Unitfly.MFiles.DevTools.ClassToSql.App.Configuration;
+using Unitfly.MFiles.DevTools.SqlGenerator.App.Configuration;
 
-namespace Unitfly.MFiles.DevTools.ClassToSql.App.Commands
+namespace Unitfly.MFiles.DevTools.SqlGenerator.App.Commands
 {
     public abstract class Query
     {
-        [Value(0, MetaName = "Class", Required = true, HelpText = "Class to convert")]
+        [Value(0, MetaName = "Class", Required = true, HelpText = "M-Files class to enerate sql query for.")]
         public string Class { get; set; }
 
-        public int Execute(ref AppSettings appSettings, ref ClassToSqlConverter converter, Query opts)
+        public int Execute(ref AppSettings appSettings, ref ClassSqlGenerator converter, Query opts)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace Unitfly.MFiles.DevTools.ClassToSql.App.Commands
         protected abstract void PrintQuery(Table table);
     }
 
-    [Verb("create-query", HelpText = "Generate sql CREATE query for M-Files class.")]
+    [Verb("create-query", HelpText = "Generate sql CREATE query for an M-Files class.")]
     public class CreateQuery : Query
     {
         protected override void PrintQuery(Table table)
@@ -42,7 +42,7 @@ namespace Unitfly.MFiles.DevTools.ClassToSql.App.Commands
         }
     }
 
-    [Verb("update-query", HelpText = "Generate sql UPDATE query for M-Files class.")]
+    [Verb("update-query", HelpText = "Generate sql UPDATE query for an M-Files class.")]
     public class UpdateQuery : Query
     {
         protected override void PrintQuery(Table table)
@@ -51,7 +51,7 @@ namespace Unitfly.MFiles.DevTools.ClassToSql.App.Commands
         }
     }
 
-    [Verb("insert-query", HelpText = "Generate sql INSERT query for M-Files class.")]
+    [Verb("insert-query", HelpText = "Generate sql INSERT query for an M-Files class.")]
     public class InsertQuery : Query
     {
         protected override void PrintQuery(Table table)
@@ -60,7 +60,7 @@ namespace Unitfly.MFiles.DevTools.ClassToSql.App.Commands
         }
     }
 
-    [Verb("delete-query", HelpText = "Generate sql DELETE query for M-Files class.")]
+    [Verb("delete-query", HelpText = "Generate sql DELETE query for an M-Files class.")]
     public class DeleteQuery : Query
     {
         protected override void PrintQuery(Table table)

@@ -1,18 +1,18 @@
 ﻿using CommandLine;
 using Serilog;
 using System;
-using Unitfly.MFiles.DevTools.ClassToSql.App.Configuration;
+using Unitfly.MFiles.DevTools.SqlGenerator.App.Configuration;
 
-namespace Unitfly.MFiles.DevTools.ClassToSql.App.Commands
+namespace Unitfly.MFiles.DevTools.SqlGenerator.App.Commands
 {
     [Verb("login", HelpText = "Login to an M-Files vault.")]
     public class Login
     {
-        public static int Execute(ref AppSettings appSettings, ref ClassToSqlConverter Converter, Login opts = null)
+        public static int Execute(ref AppSettings appSettings, ref ClassSqlGenerator Converter, Login opts = null)
         {
             try
             {
-                Converter = new ClassToSqlConverter(loginType: appSettings.Vault.LoginType,
+                Converter = new ClassSqlGenerator(loginType: appSettings.Vault.LoginType,
                     vaultName: appSettings.Vault.VaultName,
                     username: appSettings.Vault.Username,
                     password: appSettings.Vault.Password,

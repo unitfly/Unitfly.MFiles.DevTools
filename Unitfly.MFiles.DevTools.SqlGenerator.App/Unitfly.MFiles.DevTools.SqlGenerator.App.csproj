@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{115C14DA-4BE3-4FE2-BC57-A59F8FBF2418}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Unitfly.MFiles.DevTools.ClassToSql.App</RootNamespace>
-    <AssemblyName>Unitfly.MFiles.DevTools.ClassToSql.App</AssemblyName>
+    <RootNamespace>Unitfly.MFiles.DevTools.SqlGenerator.App</RootNamespace>
+    <AssemblyName>Unitfly.MFiles.DevTools.SqlGenerator.App</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -125,9 +125,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Unitfly.MFiles.DevTools.ClassToSql\Unitfly.MFiles.DevTools.ClassToSql.csproj">
+    <ProjectReference Include="..\Unitfly.MFiles.DevTools.SqlGenerator\Unitfly.MFiles.DevTools.SqlGenerator.csproj">
       <Project>{dbee8f58-3804-417e-a58c-ea4a79d57014}</Project>
-      <Name>Unitfly.MFiles.DevTools.ClassToSql</Name>
+      <Name>Unitfly.MFiles.DevTools.SqlGenerator</Name>
     </ProjectReference>
     <ProjectReference Include="..\Unitfly.MFiles.DevTools.Common\Unitfly.MFiles.DevTools.Common.csproj">
       <Project>{f6a5aaa1-6828-4991-a356-86e756823a0d}</Project>

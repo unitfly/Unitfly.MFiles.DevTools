@@ -6,11 +6,11 @@ using MFilesAPI;
 using Unitfly.MFiles.DevTools.Common;
 using Unitfly.MFiles.DevTools.Common.CaseConverters;
 
-namespace Unitfly.MFiles.DevTools.ClassToSql
+namespace Unitfly.MFiles.DevTools.SqlGenerator
 {
-    public class ClassToSqlConverter : ServerApplication
+    public class ClassSqlGenerator : ServerApplication
     {
-        public ClassToSqlConverter(LoginType loginType, string vaultName, string username, string password, string domain = null, 
+        public ClassSqlGenerator(LoginType loginType, string vaultName, string username, string password, string domain = null, 
             string protocolSequence = "ncacn_ip_tcp", string networkAddress = "localhost", string endpoint = "2266", 
             bool encryptedConnection = false, string localComputerName = "") : 
             base(loginType, vaultName, username, password, domain, protocolSequence, 
