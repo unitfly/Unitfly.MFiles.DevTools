@@ -10,7 +10,7 @@ namespace Unitfly.MFiles.DevTools.SqlGenerator.App.Commands
     [Verb("reload-config", HelpText = "Reload settings from configuration file.")]
     public class Reload
     {
-        public static int Execute(ref AppSettings appSettings, ref ClassSqlGenerator converter, Reload opts = null)
+        public static int Execute(ref AppSettings appSettings, ref SqlGenerator converter, Reload opts = null)
         {
             try
             {

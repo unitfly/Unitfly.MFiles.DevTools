@@ -2,6 +2,7 @@
 using Serilog;
 using System;
 using Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration;
+using Unitfly.MFiles.DevTools.Common;
 
 namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Commands
 {

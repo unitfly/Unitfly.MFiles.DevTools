@@ -9,7 +9,7 @@ namespace Unitfly.MFiles.DevTools.SqlGenerator.App
 {
     class Program
     {
-        public static ClassSqlGenerator Generator;
+        public static SqlGenerator Generator;
         public static AppSettings AppSettings;
 
         static void Main(string[] args)

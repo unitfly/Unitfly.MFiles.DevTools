@@ -1,6 +1,7 @@
 ﻿using CommandLine;
 using Serilog;
 using System;
+using Unitfly.MFiles.DevTools.Common;
 using Unitfly.MFiles.DevTools.SqlGenerator.App.Configuration;
 
 namespace Unitfly.MFiles.DevTools.SqlGenerator.App.Commands
@@ -8,11 +9,11 @@ namespace Unitfly.MFiles.DevTools.SqlGenerator.App.Commands
     [Verb("login", HelpText = "Login to an M-Files vault.")]
     public class Login
     {
-        public static int Execute(ref AppSettings appSettings, ref ClassSqlGenerator Converter, Login opts = null)
+        public static int Execute(ref AppSettings appSettings, ref SqlGenerator Converter, Login opts = null)
         {
             try
             {
-                Converter = new ClassSqlGenerator(loginType: appSettings.Vault.LoginType,
+                Converter = new SqlGenerator(loginType: appSettings.Vault.LoginType,
                     vaultName: appSettings.Vault.VaultName,
                     username: appSettings.Vault.Username,
                     password: appSettings.Vault.Password,

@@ -1,4 +1,4 @@
-﻿namespace Unitfly.MFiles.DevTools.SqlGenerator.App.Configuration
+﻿namespace Unitfly.MFiles.DevTools.Common
 {
     public enum ProtocolSequence
     {

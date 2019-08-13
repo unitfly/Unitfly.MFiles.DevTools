@@ -10,7 +10,7 @@ namespace Unitfly.MFiles.DevTools.SqlGenerator.App.Commands
         [Value(0, MetaName = "Class", Required = true, HelpText = "M-Files class to enerate sql query for.")]
         public string Class { get; set; }
 
-        public int Execute(ref AppSettings appSettings, ref ClassSqlGenerator converter, Query opts)
+        public int Execute(ref AppSettings appSettings, ref SqlGenerator converter, Query opts)
         {
             try
             {
