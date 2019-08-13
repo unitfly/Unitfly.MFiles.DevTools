@@ -1,7 +1,9 @@
 # Unitfly.MFiles.DevTools
 
 These M-Files Dev Tools are designed to help automate repetitive parts of M-Files configuration process.
-The solution currently contains a single tool: **AliasUpdate**, which enables batch set or update of vault aliases.
+The solution currently contains following tools: 
+- **Alias Update** - enables batch set or update of vault aliases
+- **Sql Generator** - generates sql queries (CREATE, UPDATE, INSERT, DELETE) for M-Files classes
 
 ## Alias Update
 
