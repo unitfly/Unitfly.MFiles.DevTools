@@ -45,7 +45,7 @@ namespace Unitfly.MFiles.DevTools.SqlGenerator
             {
                 if (_updateQuery is null)
                 {
-                    var id = IdColumn?.Name ?? "<ID>";
+                    var id = IdColumn?.Name ?? "[ID]";
                     var sb = new StringBuilder();
                     sb.AppendLine($"UPDATE {Name} SET");
                     sb.AppendLine(string.Join(",\r\n", Columns.Select(c => $"  {c?.Name} = ?")));
@@ -80,7 +80,7 @@ namespace Unitfly.MFiles.DevTools.SqlGenerator
             {
                 if (_deleteQuery is null)
                 {
-                    var id = IdColumn?.Name ?? "<ID>";
+                    var id = IdColumn?.Name ?? "[ID]";
                     _deleteQuery = $"DELETE FROM {Name} WHERE {id} = ?";
                 }
                 return _deleteQuery;
