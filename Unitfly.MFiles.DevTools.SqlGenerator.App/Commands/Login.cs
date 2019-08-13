@@ -13,7 +13,8 @@ namespace Unitfly.MFiles.DevTools.SqlGenerator.App.Commands
         {
             try
             {
-                Converter = new SqlGenerator(loginType: appSettings.Vault.LoginType,
+                Converter = new SqlGenerator(Log.Logger,
+                    loginType: appSettings.Vault.LoginType,
                     vaultName: appSettings.Vault.VaultName,
                     username: appSettings.Vault.Username,
                     password: appSettings.Vault.Password,

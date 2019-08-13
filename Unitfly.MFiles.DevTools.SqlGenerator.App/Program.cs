@@ -33,15 +33,15 @@ namespace Unitfly.MFiles.DevTools.SqlGenerator.App
                     : new string[] { input };
 
                 Parser.Default
-                    .ParseArguments<Exit, Login, CreateQuery, UpdateQuery, InsertQuery, DeleteQuery, Reload, Print>(arg)
+                    .ParseArguments<Login, CreateQuery, UpdateQuery, InsertQuery, DeleteQuery, Print, Reload, Exit>(arg)
                     .MapResult(
                       (Login opts) => Login.Execute(ref AppSettings, ref Generator, opts),
                       (CreateQuery opts) => new CreateQuery().Execute(ref AppSettings, ref Generator, opts),
                       (UpdateQuery opts) => new UpdateQuery().Execute(ref AppSettings, ref Generator, opts),
                       (InsertQuery opts) => new InsertQuery().Execute(ref AppSettings, ref Generator, opts),
                       (DeleteQuery opts) => new DeleteQuery().Execute(ref AppSettings, ref Generator, opts),
-                      (Reload opts) => Reload.Execute(ref AppSettings, ref Generator, opts),
                       (Print opts) => Print.Execute(ref AppSettings, opts),
+                      (Reload opts) => Reload.Execute(ref AppSettings, ref Generator, opts),
                       (Exit opts) => Exit.Execute(opts),
                       errs => 1);
 

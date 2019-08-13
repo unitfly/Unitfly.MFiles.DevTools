@@ -103,8 +103,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CreateQuery.cs" />
+    <Compile Include="Commands\InsertQuery.cs" />
     <Compile Include="Commands\Print.cs" />
+    <Compile Include="Commands\Query.cs" />
     <Compile Include="Commands\Reload.cs" />
+    <Compile Include="Commands\UpdateQuery.cs" />
     <Compile Include="Configuration\AppSettings.cs" />
     <Compile Include="Commands\Exit.cs" />
     <Compile Include="Commands\Login.cs" />
@@ -112,7 +116,7 @@
     <Compile Include="Configuration\Vault.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Commands\Run.cs" />
+    <Compile Include="Commands\DeleteQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

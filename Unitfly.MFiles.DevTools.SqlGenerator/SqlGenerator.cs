@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using MFilesAPI;
+using Serilog;
 using Unitfly.MFiles.DevTools.Common;
 using Unitfly.MFiles.DevTools.Common.CaseConverters;
 
@@ -10,31 +11,40 @@ namespace Unitfly.MFiles.DevTools.SqlGenerator
 {
     public class SqlGenerator : ServerApplication
     {
-        public SqlGenerator(LoginType loginType, string vaultName, string username, string password, string domain = null, 
-            string protocolSequence = "ncacn_ip_tcp", string networkAddress = "localhost", string endpoint = "2266", 
-            bool encryptedConnection = false, string localComputerName = "") : 
-            base(loginType, vaultName, username, password, domain, protocolSequence, 
+        public SqlGenerator(ILogger logger, LoginType loginType, string vaultName, string username, string password, string domain = null,
+            string protocolSequence = "ncacn_ip_tcp", string networkAddress = "localhost", string endpoint = "2266",
+            bool encryptedConnection = false, string localComputerName = "") :
+            base(loginType, vaultName, username, password, domain, protocolSequence,
                 networkAddress, endpoint, encryptedConnection, localComputerName)
         {
+            Log.Logger = logger;
+            Log.Information("Logged in to vault {vault} as {loginType} user {user}.",
+                vaultName, loginType, string.IsNullOrWhiteSpace(domain) ? username : $"{domain}\\{username}");
         }
 
         public Table ConvertClassToTable(string @class, CaseConverter converter, bool ignoreBuiltinProperties)
         {
-            var classObj = Vault.ClassOperations.GetAllObjectClasses().Cast<ObjectClass>().FirstOrDefault(c => c.Name.ToLower() == @class.ToLower());
+            var classObj = Vault.ClassOperations.GetAllObjectClasses()?
+                .Cast<ObjectClass>()?
+                .FirstOrDefault(c => c?.Name?.ToLower() == @class?.ToLower());
+
             if (classObj is null)
             {
                 throw new Exception($"Unable to fetch class {@class} from vault.");
             }
+
             return ConvertClassToTable(classObj, converter, ignoreBuiltinProperties);
         }
 
         public Table ConvertClassToTable(ObjectClass @class, CaseConverter converter, bool ignoreBuiltinProperties)
         {
             var propertyDefs = Vault.PropertyDefOperations.GetPropertyDefs().Cast<PropertyDef>();
-            return new Table(
+            var table = new Table(
                 GetTableName(converter, @class),
                 GetTableColumns(converter, @class, propertyDefs, ignoreBuiltinProperties)
             );
+            Log.Debug("Converted  M-Files class {class} to an sql table.", @class?.Name);
+            return table;
         }
 
         public IEnumerable<Table> ConvertAllClassesToTables(CaseConverter converter, bool ignoreBuiltinProperties)
@@ -48,8 +58,9 @@ namespace Unitfly.MFiles.DevTools.SqlGenerator
                 {
                     result.Add(ConvertClassToTable(objClass, converter, ignoreBuiltinProperties));
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    Log.Warning(e, "Error converting M-Files class {class} to an sql table.", objClass?.Name);
                     continue;
                 }
             }
