@@ -3,9 +3,10 @@ using Microsoft.Extensions.Configuration;
 using Serilog;
 using System;
 using System.IO;
-using Unitfly.MFiles.DevTools.SqlGenerator.App.Configuration;
+using Unitfly.MFiles.DevTools.GenerateSql;
+using Unitfly.MFiles.DevTools.GenerateSql.App.Configuration;
 
-namespace Unitfly.MFiles.DevTools.SqlGenerator.App.Commands
+namespace Unitfly.MFiles.DevTools.GenerateSql.App.Commands
 {
     [Verb("reload-config", HelpText = "Reload settings from configuration file.")]
     public class Reload

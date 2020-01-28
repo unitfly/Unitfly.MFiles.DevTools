@@ -1,7 +1,6 @@
 ﻿using Serilog;
 using Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration;
-using Unitfly.MFiles.DevTools.Common;
-using Unitfly.MFiles.DevTools.Common.CaseConverters;
+using Unitfly.MFiles.DevTools.CaseConverters;
 
 namespace Unitfly.MFiles.DevTools.AliasUpdate.App
 {

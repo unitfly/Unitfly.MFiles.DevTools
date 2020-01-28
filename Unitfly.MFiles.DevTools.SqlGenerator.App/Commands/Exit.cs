@@ -1,7 +1,7 @@
 ﻿using CommandLine;
 using Serilog;
 
-namespace Unitfly.MFiles.DevTools.SqlGenerator.App.Commands
+namespace Unitfly.MFiles.DevTools.GenerateSql.App.Commands
 {
     [Verb("exit", HelpText = "Exit the application.")]
     public class Exit

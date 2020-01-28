@@ -126,13 +126,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Unitfly.MFiles.DevTools.AliasUpdate\Unitfly.MFiles.DevTools.AliasUpdate.csproj">
-      <Project>{fed56f48-3ef5-41b2-b933-4673075fddc6}</Project>
-      <Name>Unitfly.MFiles.DevTools.AliasUpdate</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Unitfly.MFiles.DevTools.Common\Unitfly.MFiles.DevTools.Common.csproj">
-      <Project>{f6a5aaa1-6828-4991-a356-86e756823a0d}</Project>
-      <Name>Unitfly.MFiles.DevTools.Common</Name>
+    <ProjectReference Include="..\Unitfly.MFiles.DevTools\Unitfly.MFiles.DevTools.csproj">
+      <Project>{022b9bc4-317c-4f5f-861d-0c4f485fa413}</Project>
+      <Name>Unitfly.MFiles.DevTools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

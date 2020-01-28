@@ -2,10 +2,11 @@
 using Serilog;
 using System;
 using System.Collections.Generic;
-using Unitfly.MFiles.DevTools.SqlGenerator.App.Commands;
-using Unitfly.MFiles.DevTools.SqlGenerator.App.Configuration;
+using Unitfly.MFiles.DevTools.GenerateSql;
+using Unitfly.MFiles.DevTools.GenerateSql.App.Commands;
+using Unitfly.MFiles.DevTools.GenerateSql.App.Configuration;
 
-namespace Unitfly.MFiles.DevTools.SqlGenerator.App
+namespace Unitfly.MFiles.DevTools.GenerateSql.App
 {
     class Program
     {

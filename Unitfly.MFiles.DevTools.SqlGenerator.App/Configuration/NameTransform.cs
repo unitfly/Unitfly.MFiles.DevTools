@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using Unitfly.MFiles.DevTools.Common;
-using Unitfly.MFiles.DevTools.Common.CaseConverters;
+using Unitfly.MFiles.DevTools.CaseConverters;
 
-namespace Unitfly.MFiles.DevTools.SqlGenerator.App.Configuration
+namespace Unitfly.MFiles.DevTools.GenerateSql.App.Configuration
 {
     public class NameTansform
     {

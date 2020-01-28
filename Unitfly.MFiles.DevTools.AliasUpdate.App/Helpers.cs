@@ -1,5 +1,5 @@
 ﻿using Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration;
-using Unitfly.MFiles.DevTools.Common.UpdateBehaviours;
+using Unitfly.MFiles.DevTools.UpdateBehaviours;
 
 namespace Unitfly.MFiles.DevTools.AliasUpdate.App
 {

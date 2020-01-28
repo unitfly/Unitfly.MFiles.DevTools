@@ -1,8 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using Unitfly.MFiles.DevTools.Common;
 
-namespace Unitfly.MFiles.DevTools.SqlGenerator.App.Configuration
+namespace Unitfly.MFiles.DevTools.GenerateSql.App.Configuration
 {
 
     public class Vault

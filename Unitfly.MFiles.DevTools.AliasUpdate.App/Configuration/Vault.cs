@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using Unitfly.MFiles.DevTools.Common;
 
 namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration
 {
-
     public class Vault
     {
         [JsonProperty("VaultName", Required = Required.Always)]

@@ -1,10 +1,10 @@
 ﻿using CommandLine;
 using Serilog;
 using System;
-using Unitfly.MFiles.DevTools.Common;
-using Unitfly.MFiles.DevTools.SqlGenerator.App.Configuration;
+using Unitfly.MFiles.DevTools.GenerateSql;
+using Unitfly.MFiles.DevTools.GenerateSql.App.Configuration;
 
-namespace Unitfly.MFiles.DevTools.SqlGenerator.App.Commands
+namespace Unitfly.MFiles.DevTools.GenerateSql.App.Commands
 {
     [Verb("login", HelpText = "Login to an M-Files vault.")]
     public class Login

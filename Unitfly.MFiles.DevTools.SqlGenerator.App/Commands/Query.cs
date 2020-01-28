@@ -1,9 +1,10 @@
 ﻿using CommandLine;
 using Serilog;
 using System;
-using Unitfly.MFiles.DevTools.SqlGenerator.App.Configuration;
+using Unitfly.MFiles.DevTools.GenerateSql;
+using Unitfly.MFiles.DevTools.GenerateSql.App.Configuration;
 
-namespace Unitfly.MFiles.DevTools.SqlGenerator.App.Commands
+namespace Unitfly.MFiles.DevTools.GenerateSql.App.Commands
 {
     public abstract class Query
     {
