@@ -1,10 +1,10 @@
 ﻿using CommandLine;
 using Serilog;
 using System;
-using Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration;
 using Unitfly.MFiles.DevTools.AppBase.Commands;
+using Unitfly.MFiles.DevTools.NameUpdate.App.Configuration;
 
-namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Commands
+namespace Unitfly.MFiles.DevTools.NameUpdate.App.Commands
 {
     [Verb("run", HelpText = "Execute alias update.")]
     public class Run
@@ -21,7 +21,7 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Commands
                     return 1;
                 }
 
-                updater.SetAliases(appSettings.AliasTemplates, appSettings.ItemNameTransform.CasingConverter, appSettings.AliasUpdateBehaviour, opts.DryRun);
+                // TODO
             }
             catch (Exception e)
             {

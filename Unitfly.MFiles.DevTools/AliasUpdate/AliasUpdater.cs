@@ -8,7 +8,6 @@ using Unitfly.MFiles.DevTools.UpdateBehaviours;
 
 namespace Unitfly.MFiles.DevTools.AliasUpdate
 {
-
     public class AliasUpdater : ServerAdminApplication
     {
         private static readonly int[] _ignorePropDefs = new int[]
@@ -26,9 +25,19 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
             (int)MFBuiltInPropertyDef.MFBuiltInPropertyDefClassGroups
         };
 
-        public AliasUpdater(ILogger logger, LoginType loginType, string vaultName, string username, string password,
-            string domain = null, string protocolSequence = "ncacn_ip_tcp", string networkAddress = "localhost",
-            string endpoint = "2266", bool encryptedConnection = false, string localComputerName = "")
+        public AliasUpdater() { }
+
+        public AliasUpdater(
+            LoginType loginType,
+            string vaultName,
+            string username,
+            string password,
+            string domain = null,
+            string protocolSequence = "ncacn_ip_tcp",
+            string networkAddress = "localhost",
+            string endpoint = "2266",
+            bool encryptedConnection = false,
+            string localComputerName = "")
             : base(loginType: loginType,
                 vaultName: vaultName,
                 username: username,
@@ -40,7 +49,6 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
                 encryptedConnection: encryptedConnection,
                 localComputerName: localComputerName)
         {
-            Log.Logger = logger;
             Log.Information("Logged in to vault {vault} as {loginType} user {user}.",
                 vaultName, loginType, string.IsNullOrWhiteSpace(domain) ? username : $"{domain}\\{username}");
         }

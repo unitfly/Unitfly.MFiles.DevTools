@@ -2,28 +2,22 @@
 using Serilog;
 using System;
 using System.Collections.Generic;
+using Unitfly.MFiles.DevTools.AppBase.Commands;
 using Unitfly.MFiles.DevTools.GenerateSql;
 using Unitfly.MFiles.DevTools.GenerateSql.App.Commands;
 using Unitfly.MFiles.DevTools.GenerateSql.App.Configuration;
 
 namespace Unitfly.MFiles.DevTools.GenerateSql.App
 {
-    class Program
+    class Program : AppBase.Program<AppSettings>
     {
         public static SqlGenerator Generator;
-        public static AppSettings AppSettings;
 
-        static void Main(string[] args)
+        new static void Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .WriteTo.Console(restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Debug, outputTemplate: "{Message:lj}{NewLine}{Exception}")
-                .WriteTo.File(path: "./logs/log-.txt", rollingInterval: RollingInterval.Day, restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Debug, shared: true)
-                .CreateLogger();
+            AppBase.Program<AppSettings>.Main(args);
 
-            Log.Debug("Starting application.");
-
-            Reload.Execute(ref AppSettings, ref Generator);
+            Reload.Execute(ref AppSettings);
 
             while (true)
             {
@@ -42,7 +36,7 @@ namespace Unitfly.MFiles.DevTools.GenerateSql.App
                       (InsertQuery opts) => new InsertQuery().Execute(ref AppSettings, ref Generator, opts),
                       (DeleteQuery opts) => new DeleteQuery().Execute(ref AppSettings, ref Generator, opts),
                       (Print opts) => Print.Execute(ref AppSettings, opts),
-                      (Reload opts) => Reload.Execute(ref AppSettings, ref Generator, opts),
+                      (Reload opts) => Reload.Execute(ref AppSettings, opts),
                       (Exit opts) => Exit.Execute(opts),
                       errs => 1);
 

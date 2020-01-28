@@ -1,7 +1,7 @@
 ﻿using CommandLine;
 using Serilog;
 using System;
-using Unitfly.MFiles.DevTools.GenerateSql;
+using Unitfly.MFiles.DevTools.AppBase.Commands;
 using Unitfly.MFiles.DevTools.GenerateSql.App.Configuration;
 
 namespace Unitfly.MFiles.DevTools.GenerateSql.App.Commands

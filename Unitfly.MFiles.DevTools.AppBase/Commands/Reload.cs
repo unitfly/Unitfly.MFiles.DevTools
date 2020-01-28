@@ -3,14 +3,14 @@ using Microsoft.Extensions.Configuration;
 using Serilog;
 using System;
 using System.IO;
-using Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration;
+using Unitfly.MFiles.DevTools.AppBase.Configuration;
 
-namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Commands
+namespace Unitfly.MFiles.DevTools.AppBase.Commands
 {
     [Verb("reload-config", HelpText = "Reload settings from configuration file.")]
     public class Reload
     {
-        public static int Execute(ref AppSettings appSettings, ref AliasUpdaterApp updater, Reload opts = null)
+        public static int Execute<T>(ref T appSettings, Reload opts = null) where T : AppSettings, new()
         {
             try
             {
@@ -19,7 +19,7 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Commands
                     AddJsonFile("appsettings.json", optional: false, reloadOnChange: true).
                     Build();
 
-                appSettings = new AppSettings();
+                appSettings = new T();
                 configuration.Bind(appSettings);
                 Log.Information("Loaded config from {file}.", "appsettings.json");
 

@@ -3,14 +3,38 @@ using System;
 
 namespace Unitfly.MFiles.DevTools
 {
-
     public abstract class BaseServerApplication
     {
         protected IVault Vault { get; set; }
 
-        public BaseServerApplication(LoginType loginType, string vaultName, string username, string password, string domain = null,
-            string protocolSequence = "ncacn_ip_tcp", string networkAddress = "localhost", string endpoint = "2266",
-            bool encryptedConnection = false, string localComputerName = "")
+        public BaseServerApplication() { }
+
+        public BaseServerApplication(
+            LoginType loginType,
+            string vaultName,
+            string username,
+            string password,
+            string domain = null,
+            string protocolSequence = "ncacn_ip_tcp",
+            string networkAddress = "localhost",
+            string endpoint = "2266",
+            bool encryptedConnection = false,
+            string localComputerName = "")
+        {
+            Login(loginType, vaultName, username, password, domain, protocolSequence, networkAddress, endpoint, encryptedConnection, localComputerName);
+        }
+
+        public void Login(
+            LoginType loginType,
+            string vaultName,
+            string username,
+            string password,
+            string domain = null,
+            string protocolSequence = "ncacn_ip_tcp",
+            string networkAddress = "localhost",
+            string endpoint = "2266",
+            bool encryptedConnection = false,
+            string localComputerName = "")
         {
             var authType = MFAuthType.MFAuthTypeUnknown;
             switch (loginType)
@@ -33,7 +57,28 @@ namespace Unitfly.MFiles.DevTools
             Vault = vault?.LogIn();
         }
 
-        protected abstract MFilesServerApplication GetServerApp(string username, string password, string domain, string protocolSequence,
-            string networkAddress, string endpoint, bool encryptedConnection, string localComputerName, MFAuthType authType);
+        protected virtual MFilesServerApplication GetServerApp(
+            string username,
+            string password,
+            string domain,
+            string protocolSequence,
+            string networkAddress,
+            string endpoint,
+            bool encryptedConnection,
+            string localComputerName,
+            MFAuthType authType)
+        {
+            var serverApp = new MFilesServerApplication();
+            serverApp.ConnectEx3(AuthType: authType,
+                UserName: username,
+                Password: password,
+                Domain: domain,
+                ProtocolSequence: protocolSequence,
+                NetworkAddress: networkAddress,
+                Endpoint: endpoint,
+                EncryptedConnection: encryptedConnection,
+                LocalComputerName: localComputerName);
+            return serverApp;
+        }
     }
 }

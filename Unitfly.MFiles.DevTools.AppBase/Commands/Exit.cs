@@ -1,7 +1,7 @@
 ﻿using CommandLine;
 using Serilog;
 
-namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Commands
+namespace Unitfly.MFiles.DevTools.AppBase.Commands
 {
     [Verb("exit", HelpText = "Exit the application.")]
     public class Exit

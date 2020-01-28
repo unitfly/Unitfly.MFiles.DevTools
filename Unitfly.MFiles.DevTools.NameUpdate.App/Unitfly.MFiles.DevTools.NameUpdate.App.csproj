@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5088BDA4-B2D1-4E15-A150-C8549D267314}</ProjectGuid>
+    <ProjectGuid>{668FBBC5-66CD-4106-91EB-681DC4EB12C4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Unitfly.MFiles.DevTools.AliasUpdate.App</RootNamespace>
-    <AssemblyName>Unitfly.MFiles.DevTools.AliasUpdate.App</AssemblyName>
+    <RootNamespace>Unitfly.MFiles.DevTools.NameUpdate.App</RootNamespace>
+    <AssemblyName>Unitfly.MFiles.DevTools.NameUpdate.App</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -103,15 +103,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Run.cs" />
     <Compile Include="Configuration\AppSettings.cs" />
-    <Compile Include="Configuration\NameTransform.cs" />
-    <Compile Include="Configuration\UpdateBehaviour.cs" />
-    <Compile Include="Configuration\Vault.cs" />
-    <Compile Include="Helpers.cs" />
+    <Compile Include="App.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="App.cs" />
-    <Compile Include="Commands\Run.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -130,5 +126,6 @@
       <Name>Unitfly.MFiles.DevTools</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

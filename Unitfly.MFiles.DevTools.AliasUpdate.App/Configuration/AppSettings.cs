@@ -1,13 +1,13 @@
-﻿namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration
-{
-    public class AppSettings
-    {
-        public Vault Vault { get; set; }
+﻿using Unitfly.MFiles.DevTools.AppBase.Configuration;
 
+namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration
+{
+    public class AppSettings : AppBase.Configuration.AppSettings
+    {
         public UpdateBehaviour AliasUpdateBehaviour { get; set; }
 
         public NameTansform ItemNameTransform { get; set; }
 
-        public AliasTemplates AliasTemplates { get; set; }
+        public VaultStructureElements AliasTemplates { get; set; }
     }
 }

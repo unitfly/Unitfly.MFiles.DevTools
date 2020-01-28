@@ -103,15 +103,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.cs" />
     <Compile Include="Commands\CreateQuery.cs" />
     <Compile Include="Commands\InsertQuery.cs" />
-    <Compile Include="Commands\Print.cs" />
     <Compile Include="Commands\Query.cs" />
-    <Compile Include="Commands\Reload.cs" />
     <Compile Include="Commands\UpdateQuery.cs" />
     <Compile Include="Configuration\AppSettings.cs" />
-    <Compile Include="Commands\Exit.cs" />
-    <Compile Include="Commands\Login.cs" />
     <Compile Include="Configuration\NameTransform.cs" />
     <Compile Include="Configuration\Vault.cs" />
     <Compile Include="Program.cs" />
@@ -126,6 +123,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Unitfly.MFiles.DevTools.AppBase\Unitfly.MFiles.DevTools.AppBase.csproj">
+      <Project>{c7a8a116-e1bd-45ea-94a3-0d468e97728e}</Project>
+      <Name>Unitfly.MFiles.DevTools.AppBase</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Unitfly.MFiles.DevTools\Unitfly.MFiles.DevTools.csproj">
       <Project>{022b9bc4-317c-4f5f-861d-0c4f485fa413}</Project>
       <Name>Unitfly.MFiles.DevTools</Name>

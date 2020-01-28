@@ -1,6 +1,5 @@
 ﻿using CommandLine;
 using Serilog;
-using Unitfly.MFiles.DevTools.GenerateSql;
 
 namespace Unitfly.MFiles.DevTools.GenerateSql.App.Commands
 {

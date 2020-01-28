@@ -8,9 +8,19 @@ namespace Unitfly.MFiles.DevTools.NameUpdate
 {
     public class NameUpdater : ServerAdminApplication
     {
-        public NameUpdater(ILogger logger, LoginType loginType, string vaultName, string username, string password,
-            string domain = null, string protocolSequence = "ncacn_ip_tcp", string networkAddress = "localhost",
-            string endpoint = "2266", bool encryptedConnection = false, string localComputerName = "")
+        public NameUpdater() { }
+
+        public NameUpdater(
+            LoginType loginType,
+            string vaultName,
+            string username,
+            string password,
+            string domain = null,
+            string protocolSequence = "ncacn_ip_tcp",
+            string networkAddress = "localhost",
+            string endpoint = "2266",
+            bool encryptedConnection = false,
+            string localComputerName = "")
             : base(loginType: loginType,
                 vaultName: vaultName,
                 username: username,
@@ -22,7 +32,6 @@ namespace Unitfly.MFiles.DevTools.NameUpdate
                 encryptedConnection: encryptedConnection,
                 localComputerName: localComputerName)
         {
-            Log.Logger = logger;
             Log.Information("Logged in to vault {vault} as {loginType} user {user}.",
                 vaultName, loginType, string.IsNullOrWhiteSpace(domain) ? username : $"{domain}\\{username}");
         }
@@ -153,7 +162,7 @@ namespace Unitfly.MFiles.DevTools.NameUpdate
             foreach (var item in replaceItems)
             {
                 item.PropertyDef.Name = newName;
-                
+
                 if (!dryRun)
                 {
                     Vault.PropertyDefOperations.UpdatePropertyDefAdmin(item);

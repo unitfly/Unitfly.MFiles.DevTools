@@ -8,15 +8,32 @@ using Unitfly.MFiles.DevTools.CaseConverters;
 
 namespace Unitfly.MFiles.DevTools.GenerateSql
 {
-    public class SqlGenerator : ServerApplication
+    public class SqlGenerator : BaseServerApplication
     {
-        public SqlGenerator(ILogger logger, LoginType loginType, string vaultName, string username, string password, string domain = null,
-            string protocolSequence = "ncacn_ip_tcp", string networkAddress = "localhost", string endpoint = "2266",
-            bool encryptedConnection = false, string localComputerName = "") :
-            base(loginType, vaultName, username, password, domain, protocolSequence,
-                networkAddress, endpoint, encryptedConnection, localComputerName)
+        public SqlGenerator() { }
+
+        public SqlGenerator(
+            LoginType loginType,
+            string vaultName,
+            string username,
+            string password,
+            string domain = null,
+            string protocolSequence = "ncacn_ip_tcp",
+            string networkAddress = "localhost",
+            string endpoint = "2266",
+            bool encryptedConnection = false,
+            string localComputerName = "") :
+            base(loginType,
+                vaultName,
+                username,
+                password,
+                domain,
+                protocolSequence,
+                networkAddress,
+                endpoint,
+                encryptedConnection,
+                localComputerName)
         {
-            Log.Logger = logger;
             Log.Information("Logged in to vault {vault} as {loginType} user {user}.",
                 vaultName, loginType, string.IsNullOrWhiteSpace(domain) ? username : $"{domain}\\{username}");
         }

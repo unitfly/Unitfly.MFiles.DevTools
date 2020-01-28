@@ -2,14 +2,14 @@
 using Newtonsoft.Json;
 using Serilog;
 using System;
-using Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration;
+using Unitfly.MFiles.DevTools.AppBase.Configuration;
 
-namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Commands
+namespace Unitfly.MFiles.DevTools.AppBase.Commands
 {
     [Verb("print-config", HelpText = "Print configuration file.")]
     public class Print
     {
-        public static int Execute(ref AppSettings appSettings, Print opts = null)
+        public static int Execute<T>(ref T appSettings, Print opts = null) where T : AppSettings, new()
         {
             try
             {

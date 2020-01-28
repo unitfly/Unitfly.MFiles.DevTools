@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5088BDA4-B2D1-4E15-A150-C8549D267314}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Unitfly.MFiles.DevTools.AliasUpdate.App</RootNamespace>
-    <AssemblyName>Unitfly.MFiles.DevTools.AliasUpdate.App</AssemblyName>
+    <ProjectGuid>{C7A8A116-E1BD-45EA-94A3-0D468E97728E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Unitfly.MFiles.DevTools.AppBase</RootNamespace>
+    <AssemblyName>Unitfly.MFiles.DevTools.AppBase</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommandLine, Version=2.6.0.0, Culture=neutral, PublicKeyToken=5a870481e358d379, processorArchitecture=MSIL">
@@ -103,15 +106,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Print.cs" />
+    <Compile Include="Commands\Reload.cs" />
     <Compile Include="Configuration\AppSettings.cs" />
-    <Compile Include="Configuration\NameTransform.cs" />
-    <Compile Include="Configuration\UpdateBehaviour.cs" />
     <Compile Include="Configuration\Vault.cs" />
-    <Compile Include="Helpers.cs" />
+    <Compile Include="Commands\Exit.cs" />
+    <Compile Include="Commands\Login.cs" />
+    <Compile Include="Configuration\VaultStructureElements.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="App.cs" />
-    <Compile Include="Commands\Run.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -121,12 +124,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Unitfly.MFiles.DevTools.AppBase\Unitfly.MFiles.DevTools.AppBase.csproj">
-      <Project>{c7a8a116-e1bd-45ea-94a3-0d468e97728e}</Project>
-      <Name>Unitfly.MFiles.DevTools.AppBase</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Unitfly.MFiles.DevTools\Unitfly.MFiles.DevTools.csproj">
-      <Project>{022b9bc4-317c-4f5f-861d-0c4f485fa413}</Project>
+      <Project>{022B9BC4-317C-4F5F-861D-0C4F485FA413}</Project>
       <Name>Unitfly.MFiles.DevTools</Name>
     </ProjectReference>
   </ItemGroup>

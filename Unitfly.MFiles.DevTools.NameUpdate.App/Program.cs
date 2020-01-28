@@ -1,27 +1,25 @@
 ﻿using CommandLine;
-using Serilog;
 using System;
-using Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration;
-using Unitfly.MFiles.DevTools.AliasUpdate.App.Commands;
 using Unitfly.MFiles.DevTools.AppBase.Commands;
+using Unitfly.MFiles.DevTools.NameUpdate.App.Commands;
+using Unitfly.MFiles.DevTools.NameUpdate.App.Configuration;
 
-namespace Unitfly.MFiles.DevTools.AliasUpdate.App
+namespace Unitfly.MFiles.DevTools.NameUpdate.App
 {
-    public class Program : AppBase.Program<AppSettings>
+    class Program : AppBase.Program<AppSettings>
     {
         public static App Updater;
 
         new static void Main(string[] args)
         {
             AppBase.Program<AppSettings>.Main(args);
-            
+
             Reload.Execute(ref AppSettings);
 
             while (true)
             {
                 Console.Write("> ");
                 var arg = Console.ReadLine().Split(' ');
-
 
                 Parser.Default
                     .ParseArguments<Exit, Login, Run, Reload, Print>(arg)
@@ -38,6 +36,5 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate.App
 
             Exit.Execute();
         }
-
     }
 }

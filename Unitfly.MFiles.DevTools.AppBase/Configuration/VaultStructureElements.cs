@@ -1,6 +1,6 @@
-﻿namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration
+﻿namespace Unitfly.MFiles.DevTools.AppBase.Configuration
 {
-    public class AliasTemplates
+    public class VaultStructureElements
     {
         public string Class { get; set; }
 
