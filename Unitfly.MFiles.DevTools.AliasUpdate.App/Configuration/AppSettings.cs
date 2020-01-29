@@ -1,6 +1,4 @@
-﻿using Unitfly.MFiles.DevTools.AppBase.Configuration;
-
-namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration
+﻿namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration
 {
     public class AppSettings : AppBase.Configuration.AppSettings
     {

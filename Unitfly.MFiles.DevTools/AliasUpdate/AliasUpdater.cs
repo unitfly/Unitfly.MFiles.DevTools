@@ -251,23 +251,33 @@ namespace Unitfly.MFiles.DevTools.AliasUpdate
 
         private void UpdateAlias<T>(T item, Action<T> updateAction, ItemNameParser<T> parser, IUpdateBehaviour behaviour, ISemanticAliases aliases, bool dryRun)
         {
+            string newAlias = null;
             try
             {
                 var expanded = parser.Expand(item, Vault);
-                var newAlias = behaviour.UpdateAlias(aliases.Value, expanded);
+                newAlias = behaviour.UpdateAlias(aliases.Value, expanded);
 
                 if (string.IsNullOrWhiteSpace(newAlias) && string.IsNullOrWhiteSpace(aliases.Value))
                 {
                     return;
                 }
+            }
+            catch (Exception e)
+            {
+                Log.Error(e, "Error generating new alias for {alias}.", aliases?.Value);
+                return;
+            }
 
+            try
+            {
                 if (aliases.Value != newAlias)
                 {
                     aliases.Value = newAlias;
                     if (!dryRun) updateAction(item);
                 }
 
-                Log.Information("Updated alias {alias}.", aliases?.Value);
+                var msg = dryRun ? "Would update alias {alias}." : "Updated alias {alias}.";
+                Log.Information(msg, aliases?.Value);
             }
             catch (Exception e)
             {

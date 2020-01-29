@@ -6,13 +6,13 @@ using Unitfly.MFiles.DevTools.NameUpdate.App.Configuration;
 
 namespace Unitfly.MFiles.DevTools.NameUpdate.App.Commands
 {
-    [Verb("run", HelpText = "Execute alias update.")]
+    [Verb("run", HelpText = "Execute name update.")]
     public class Run
     {
         [Option('d', "dry-run", Required = false, HelpText = "Only show which aliases will be updated.")]
         public bool DryRun { get; set; }
 
-        public static int Execute(ref AppSettings appSettings, ref App updater, Run opts)
+        public static int Execute(ref AppSettings appSettings, ref NameUpdaterApp updater, Run opts)
         {
             try
             {
@@ -21,11 +21,11 @@ namespace Unitfly.MFiles.DevTools.NameUpdate.App.Commands
                     return 1;
                 }
 
-                // TODO
+                updater.UpdateNames(appSettings.Names, opts.DryRun);
             }
             catch (Exception e)
             {
-                Log.Error(e, "Error updating aliases.");
+                Log.Error(e, "Error updating names.");
                 return 1;
             }
             return 0;

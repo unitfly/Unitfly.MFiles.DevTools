@@ -1,4 +1,4 @@
-﻿namespace Unitfly.MFiles.DevTools.AppBase.Configuration
+﻿namespace Unitfly.MFiles.DevTools.AliasUpdate.App.Configuration
 {
     public class VaultStructureElements
     {

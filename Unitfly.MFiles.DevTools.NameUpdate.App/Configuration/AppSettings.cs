@@ -2,5 +2,6 @@
 {
     public class AppSettings : Unitfly.MFiles.DevTools.AppBase.Configuration.AppSettings
     {
+        public VaultStructureElements Names { get; set; }
     }
 }

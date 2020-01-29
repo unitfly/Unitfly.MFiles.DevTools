@@ -8,7 +8,7 @@ namespace Unitfly.MFiles.DevTools.NameUpdate.App
 {
     class Program : AppBase.Program<AppSettings>
     {
-        public static App Updater;
+        public static NameUpdaterApp Updater;
 
         new static void Main(string[] args)
         {

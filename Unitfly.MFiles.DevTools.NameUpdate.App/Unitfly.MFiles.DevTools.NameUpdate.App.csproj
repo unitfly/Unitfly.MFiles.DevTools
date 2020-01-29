@@ -105,7 +105,8 @@
   <ItemGroup>
     <Compile Include="Commands\Run.cs" />
     <Compile Include="Configuration\AppSettings.cs" />
-    <Compile Include="App.cs" />
+    <Compile Include="NameUpdaterApp.cs" />
+    <Compile Include="Configuration\VaultStructureElements.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
