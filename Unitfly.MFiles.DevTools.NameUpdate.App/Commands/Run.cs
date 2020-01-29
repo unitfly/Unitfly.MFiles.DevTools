@@ -22,6 +22,8 @@ namespace Unitfly.MFiles.DevTools.NameUpdate.App.Commands
                 }
 
                 updater.UpdateNames(appSettings.Names, opts.DryRun);
+
+                updater.UpdateNames(appSettings.CsvFiles, appSettings.CsvDelimiter, opts.DryRun);
             }
             catch (Exception e)
             {
