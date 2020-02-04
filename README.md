@@ -13,9 +13,10 @@ The solution currently contains the following tools:
 Console application that enables batch rename of M-Files vault structure elements:
 
 - classes
-- user groups
 - object types
 - value lists
+- user groups
+- named access control lists
 - property definitions
 - workflows
 - workflow states
@@ -41,9 +42,10 @@ For more more details on running and configuring this tool, check out [wiki page
 Console application that updates M-Files vault aliases using a set of rules and templates defined in json configuration file. Vault structure elements that can be updated this way are:
 
 - classes
-- user groups
 - object types
 - value lists
+- user groups
+- named access control lists
 - property definitions
 - workflows
 - workflow states
