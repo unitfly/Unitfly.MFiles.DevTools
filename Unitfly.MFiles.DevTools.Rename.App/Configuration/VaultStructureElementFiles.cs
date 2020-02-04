@@ -1,4 +1,4 @@
-﻿namespace Unitfly.MFiles.DevTools.NameUpdate.App.Configuration
+﻿namespace Unitfly.MFiles.DevTools.Rename.App.Configuration
 {
     public class VaultStructureElementFiles
     {

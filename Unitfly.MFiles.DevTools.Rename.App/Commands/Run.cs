@@ -2,9 +2,9 @@
 using Serilog;
 using System;
 using Unitfly.MFiles.DevTools.AppBase.Commands;
-using Unitfly.MFiles.DevTools.NameUpdate.App.Configuration;
+using Unitfly.MFiles.DevTools.Rename.App.Configuration;
 
-namespace Unitfly.MFiles.DevTools.NameUpdate.App.Commands
+namespace Unitfly.MFiles.DevTools.Rename.App.Commands
 {
     [Verb("run", HelpText = "Execute name update.")]
     public class Run
@@ -12,7 +12,7 @@ namespace Unitfly.MFiles.DevTools.NameUpdate.App.Commands
         [Option('d', "dry-run", Required = false, HelpText = "Only show which aliases will be updated.")]
         public bool DryRun { get; set; }
 
-        public static int Execute(ref AppSettings appSettings, ref NameUpdaterApp updater, Run opts)
+        public static int Execute(ref AppSettings appSettings, ref RenamerApp updater, Run opts)
         {
             try
             {

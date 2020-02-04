@@ -1,7 +1,7 @@
 ﻿using CsvHelper.Configuration.Attributes;
 using Unitfly.MFiles.DevTools.Rename;
 
-namespace Unitfly.MFiles.DevTools.NameUpdate.App.Configuration
+namespace Unitfly.MFiles.DevTools.Rename.App.Configuration
 {
     public class CsvFile
     {

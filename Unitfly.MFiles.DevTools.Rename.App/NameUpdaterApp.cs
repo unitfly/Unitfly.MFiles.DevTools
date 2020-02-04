@@ -5,18 +5,18 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using Unitfly.MFiles.DevTools.NameUpdate.App.Configuration;
+using Unitfly.MFiles.DevTools.Rename.App.Configuration;
 using Unitfly.MFiles.DevTools.Rename;
 
-namespace Unitfly.MFiles.DevTools.NameUpdate.App
+namespace Unitfly.MFiles.DevTools.Rename.App
 {
-    public class NameUpdaterApp : Renamer
+    public class RenamerApp : Renamer
     {
-        public NameUpdaterApp()
+        public RenamerApp()
         {
         }
 
-        public NameUpdaterApp(
+        public RenamerApp(
             LoginType loginType,
             string vaultName,
             string username,

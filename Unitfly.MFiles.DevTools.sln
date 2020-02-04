@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unitfly.MFiles.DevTools", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unitfly.MFiles.DevTools.AppBase", "Unitfly.MFiles.DevTools.AppBase\Unitfly.MFiles.DevTools.AppBase.csproj", "{C7A8A116-E1BD-45EA-94A3-0D468E97728E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unitfly.MFiles.DevTools.NameUpdate.App", "Unitfly.MFiles.DevTools.NameUpdate.App\Unitfly.MFiles.DevTools.NameUpdate.App.csproj", "{668FBBC5-66CD-4106-91EB-681DC4EB12C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unitfly.MFiles.DevTools.Rename.App", "Unitfly.MFiles.DevTools.Rename.App\Unitfly.MFiles.DevTools.Rename.App.csproj", "{668FBBC5-66CD-4106-91EB-681DC4EB12C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

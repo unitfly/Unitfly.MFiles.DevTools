@@ -1,14 +1,14 @@
 ﻿using CommandLine;
 using System;
 using Unitfly.MFiles.DevTools.AppBase.Commands;
-using Unitfly.MFiles.DevTools.NameUpdate.App.Commands;
-using Unitfly.MFiles.DevTools.NameUpdate.App.Configuration;
+using Unitfly.MFiles.DevTools.Rename.App.Commands;
+using Unitfly.MFiles.DevTools.Rename.App.Configuration;
 
-namespace Unitfly.MFiles.DevTools.NameUpdate.App
+namespace Unitfly.MFiles.DevTools.Rename.App
 {
     class Program : AppBase.Program<AppSettings>
     {
-        public static NameUpdaterApp Updater;
+        public static RenamerApp Updater;
 
         new static void Main(string[] args)
         {
