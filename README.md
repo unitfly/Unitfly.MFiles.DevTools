@@ -4,9 +4,9 @@ These M-Files Dev Tools are designed to help automate repetitive parts of M-File
 
 The solution currently contains the following tools:
 
-- **Rename** - enables batch rename of vault structure elements
-- **Alias Update** - enables batch set or update of vault structure elements' aliases
-- **Sql Generator** - generates sql queries (CREATE, UPDATE, INSERT, DELETE) for M-Files classes
+- [**Rename**](#Rename) - enables batch rename of vault structure elements
+- [**Alias Update**](#Alias-Update) - enables batch set or update of vault structure elements' aliases
+- [**Sql Generator**](#Sql-Generator) - generates sql queries (CREATE, UPDATE, INSERT, DELETE) for M-Files classes
 
 ## Rename
 
