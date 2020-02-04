@@ -1,12 +1,16 @@
-﻿using Serilog;
+﻿using CsvHelper;
+using CsvHelper.Configuration;
+using Serilog;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using Unitfly.MFiles.DevTools.NameUpdate.App.Configuration;
+using Unitfly.MFiles.DevTools.Rename;
 
 namespace Unitfly.MFiles.DevTools.NameUpdate.App
 {
-    public class NameUpdaterApp : NameUpdater
+    public class NameUpdaterApp : Renamer
     {
         public NameUpdaterApp()
         {
@@ -36,7 +40,55 @@ namespace Unitfly.MFiles.DevTools.NameUpdate.App
         {
         }
 
-        private Dictionary<string, string> CsvToDict(string file, string delimiter)
+        public void UpdateNames(VaultStructureElementFiles names, string csvDelimiter, bool dryRun)
+        {
+            if (names?.ObjectTypes != null)
+            {
+                UpdateObjTypeNames(RulesFromCsv(names.ObjectTypes, csvDelimiter), dryRun);
+            }
+
+            if (names?.ValueLists != null)
+            {
+                UpdateValueListNames(RulesFromCsv(names.ValueLists, csvDelimiter), dryRun);
+            }
+
+            if (names?.PropertyDefs != null)
+            {
+                UpdatePropertyDefNames(RulesFromCsv(names.PropertyDefs, csvDelimiter), dryRun);
+            }
+
+            if (names?.Classes != null)
+            {
+                UpdateClassNames(RulesFromCsv(names.Classes, csvDelimiter), dryRun);
+            }
+
+            if (names?.Workflows != null)
+            {
+                UpdateWorkflowNames(RulesFromCsv(names.Workflows, csvDelimiter), dryRun);
+            }
+
+            if (names?.States != null)
+            {
+                UpdateStateNames(RulesFromCsv(names.States, csvDelimiter), dryRun);
+            }
+
+            if (names?.StateTransitions != null)
+            {
+                UpdateStateTransitionNames(RulesFromCsv(names.StateTransitions, csvDelimiter), dryRun);
+            }
+
+            if (names?.UserGroups != null)
+            {
+                UpdateUserGroupNames(RulesFromCsv(names.UserGroups, csvDelimiter), dryRun);
+            }
+
+            if (names?.NamedACLs != null)
+            {
+                UpdateNamedACLNames(RulesFromCsv(names.NamedACLs, csvDelimiter), dryRun);
+            }
+        }
+
+        private IEnumerable<RenameRule> RulesFromCsv(string file, string delimiter)
         {
             if (string.IsNullOrWhiteSpace(file))
             {
@@ -55,128 +107,14 @@ namespace Unitfly.MFiles.DevTools.NameUpdate.App
                 return null;
             }
 
-            var lines = File.ReadLines(file);
-            if (lines is null)
+            var c = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
-                return null;
-            }
-
-            var fields = lines.Select(line => line.Split(new string[] { delimiter }, System.StringSplitOptions.RemoveEmptyEntries));
-            if (fields is null)
+                Delimiter = delimiter
+            };
+            using (var reader = new StreamReader(file))
+            using (var csv = new CsvReader(reader, c))
             {
-                return null;
-            }
-
-            var dict = new Dictionary<string, string>();
-            foreach (var field in fields)
-            {
-                if (field.Length != 2)
-                {
-                    Log.Warning("Invalid line in {file}: {line}. " +
-                        "Expected {expected} fields, got {actual}.", 
-                        file, string.Join(delimiter, fields), 2, field.Length);
-                    continue;
-                }
-
-                dict[field[0]] = field[1];
-            }
-
-            return dict;
-        }
-
-        public void UpdateNames(VaultStructureElementFiles names, string csvDelimiter, bool dryRun)
-        {
-            if (names?.ObjectTypes != null)
-            {
-                UpdateObjTypeNames(CsvToDict(names.ObjectTypes, csvDelimiter), dryRun);
-            }
-
-            if (names?.ValueLists != null)
-            {
-                UpdateValueListNames(CsvToDict(names.ValueLists, csvDelimiter), dryRun);
-            }
-
-            if (names?.PropertyDefs != null)
-            {
-                UpdatePropertyDefNames(CsvToDict(names.PropertyDefs, csvDelimiter), dryRun);
-            }
-
-            if (names?.Classes != null)
-            {
-                UpdateClassNames(CsvToDict(names.Classes, csvDelimiter), dryRun);
-            }
-
-            if (names?.Workflows != null)
-            {
-                UpdateWorkflowNames(CsvToDict(names.Workflows, csvDelimiter), dryRun);
-            }
-
-            if (names?.States != null)
-            {
-                UpdateStateNames(CsvToDict(names.States, csvDelimiter), dryRun);
-            }
-
-            if (names?.StateTransitions != null)
-            {
-                UpdateStateTransitionNames(CsvToDict(names.StateTransitions, csvDelimiter), dryRun);
-            }
-
-            if (names?.UserGroups != null)
-            {
-                UpdateUserGroupNames(CsvToDict(names.UserGroups, csvDelimiter), dryRun);
-            }
-
-            if (names?.NamedACLs != null)
-            {
-                UpdateNamedACLNames(CsvToDict(names.NamedACLs, csvDelimiter), dryRun);
-            }
-        }
-
-        public void UpdateNames(VaultStructureElements names, bool dryRun)
-        {
-            if (names?.ObjectTypes != null)
-            {
-                UpdateObjTypeNames(names.ObjectTypes, dryRun);
-            }
-
-            if (names?.ValueLists != null)
-            {
-                UpdateValueListNames(names.ValueLists, dryRun);
-            }
-
-            if (names?.PropertyDefs != null)
-            {
-                UpdatePropertyDefNames(names.PropertyDefs, dryRun);
-            }
-
-            if (names?.Classes != null)
-            {
-                UpdateClassNames(names.Classes, dryRun);
-            }
-
-            if (names?.Workflows != null)
-            {
-                UpdateWorkflowNames(names.Workflows, dryRun);
-            }
-
-            if (names?.States != null)
-            {
-                UpdateStateNames(names.States, dryRun);
-            }
-
-            if (names?.StateTransitions != null)
-            {
-                UpdateStateTransitionNames(names.StateTransitions, dryRun);
-            }
-
-            if (names?.UserGroups != null)
-            {
-                UpdateUserGroupNames(names.UserGroups, dryRun);
-            }
-
-            if (names?.NamedACLs != null)
-            {
-                UpdateNamedACLNames(names.NamedACLs, dryRun);
+                return csv.GetRecords<CsvFile>()?.Select(f => f.ToRule()).ToList();
             }
         }
     }

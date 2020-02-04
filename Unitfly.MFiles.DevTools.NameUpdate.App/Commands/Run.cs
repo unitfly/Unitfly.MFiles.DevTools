@@ -20,9 +20,7 @@ namespace Unitfly.MFiles.DevTools.NameUpdate.App.Commands
                 {
                     return 1;
                 }
-
-                updater.UpdateNames(appSettings.Names, opts.DryRun);
-
+                
                 updater.UpdateNames(appSettings.CsvFiles, appSettings.CsvDelimiter, opts.DryRun);
             }
             catch (Exception e)
